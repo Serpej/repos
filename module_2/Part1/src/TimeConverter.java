@@ -29,7 +29,7 @@ public class TimeConverter {
         
 
         // Print result
-        System.out.printf("It will be %d%n", sum);
+        System.out.printf("It will be %d seconds.%n", sum);
         userInput.close();
     }
 }
