@@ -28,7 +28,7 @@ public class TimeConverter {
         sum += seconds;
         
 
-        // Print result
+        // Print result as seconds
         System.out.printf("It will be %d seconds.%n", sum);
         userInput.close();
     }
