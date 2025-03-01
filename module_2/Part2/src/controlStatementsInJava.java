@@ -19,7 +19,8 @@ public class controlStatementsInJava {
                 falseInput = userInput.next(); // You have to store the input to negate an infinite loop
                 System.out.println("You need to enter a number, enter a first operand (0-100): ");
             }
-      
+            operand1 = userInput.nextDouble();
+            
         } else {
             operand1 = userInput.nextDouble();
         }
@@ -31,6 +32,7 @@ public class controlStatementsInJava {
                 falseInput = userInput.next(); // You have to store the input to negate an infinite loop
                 System.out.println("Come on, you already know what to do!: ");
             }
+            operand2 = userInput.nextDouble();
 
         } else {
             operand2 = userInput.nextDouble();
@@ -65,14 +67,10 @@ public class controlStatementsInJava {
         
                 default:
                 System.out.println("Invalid input, try again: ");
-                System.out.println(operand1 + " " + operand2 + " " + operator);
-
-
                     break;
             }
         } else {
             System.out.println("Invalid input, try again: ");
-            System.out.println("typ 2");
 
         }
     userInput.close();
