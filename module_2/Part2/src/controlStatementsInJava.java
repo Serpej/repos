@@ -9,16 +9,31 @@ public class controlStatementsInJava {
 
         double operand1 = 0.0;
         double operand2 = 0.0;
+        String falseInput = "";
         
-        System.out.println("Enter an operand: ");
+        System.out.println("Enter a number for your first operand: ");
 
-        while (!userInput.hasNextDouble()) {
-
-            if (userInput.hasNextDouble()) {
-                operand1 = userInput.nextDouble();
-            } else {
-                System.out.println("You need to enter a number, Enter an operand: ");
+        if (!userInput.hasNextDouble()) {
+            while (!userInput.hasNextDouble()) {
+                falseInput = userInput.next(); // You have to store the input to negate an infinite loop
+                System.out.println("You need to enter a number, enter a first operand: ");
             }
+      
+        } else {
+            operand1 = userInput.nextDouble();
         }
+
+        System.out.printf("Cool, you chose %.0f. Now enter a number for your second operand: %n", operand1);
+
+        if (!userInput.hasNextDouble()) {
+            while (!userInput.hasNextDouble()) {
+                falseInput = userInput.next(); // You have to store the input to negate an infinite loop
+                System.out.println("Come on, you already know what to do!: ");
+            }
+
+        } else {
+            operand2 = userInput.nextDouble();
+        }
+    
     }
 }
