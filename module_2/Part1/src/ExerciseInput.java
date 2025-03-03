@@ -3,15 +3,20 @@ import java.util.Scanner;
 public class ExerciseInput {
     public static void main(String[] args) {
         
-        Scanner userInput = new Scanner(System.in);
-        userInput.useDelimiter("[:/\\s]+");
-
-        System.out.println("Enter a path: ");
-
-        System.out.println(userInput.next());
-        System.out.println(userInput.next());
-        System.out.println(userInput.next());
         
+        
+        Scanner inputString = new Scanner(System.in);
+        String input = inputString.nextLine();
+        inputString.close();
+
+        Scanner userInput = new Scanner(input);
+        userInput.useDelimiter("[:/\\s]+");
+        
+        while (userInput.hasNext()) {
+            System.out.println(userInput.next());
+
+        }
+        userInput.close();
         System.exit(0);
      }
 }

@@ -78,6 +78,7 @@ public class Main {
 
         // Calculate Charging Time
         // Charging time = Battery capacity (KWh) / Charging power(kWh)
+        
         chargingTime1 = BATTERY_CAPACITY / chargingPower1;
         chargingTime2 = BATTERY_CAPACITY / chargingPower2;
         chargingTime3 = BATTERY_CAPACITY / chargingPower3;
