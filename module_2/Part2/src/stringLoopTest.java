@@ -3,13 +3,13 @@ public class stringLoopTest {
         
         String banana = "BANANA";
         
-        for (int i = 0; i < banana.length(); i++) {
-            char letter = banana.charAt(i);    
-            System.out.println(letter);
-            if (letter == 'A') {
-                System.out.println("It's an A!");
-            }
-        }
+        // for (int i = 0; i < banana.length(); i++) {
+        //     char letter = banana.charAt(i);    
+        //     System.out.println(letter);
+        //     if (letter == 'A') {
+        //         System.out.println("It's an A!");
+        //     }
+        // }
 
         
 
