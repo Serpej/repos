@@ -24,7 +24,7 @@
  * Print table
  * @author Your Name (hagjes-5)
  */
-public class Main {
+public class chargeElectricCar {
     public static final double BATTERY_CAPACITY = 35.8;
     public static final double W_TO_KW = 1000.0;
     public static final double AMPERE_10 = 10.0;

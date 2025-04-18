@@ -2,7 +2,7 @@
  * A Practice exercise on how to write a simple program.
  * Prints a message in the console.
  */
-public class Exercise1 
+public class ExerciseroundOffDigits 
 {
     public static void main(String[] args) {
         /**
