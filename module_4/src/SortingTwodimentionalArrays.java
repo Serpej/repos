@@ -1,5 +1,9 @@
 import java.util.Arrays;
 
+/**
+ * This is a program that shows how to sort a twodimentional array using bubble sort.
+ */
+
 public class SortingTwodimentionalArrays {
     final static int NAMES = 2;
     final static int F_NAME = 0;
