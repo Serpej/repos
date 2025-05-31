@@ -6,6 +6,7 @@ import java.util.Scanner;
  * What kind of FIRE one wants to pursue (FAT fire, Lean Fire or Barrista Fire).
  * The information on these come from here: https://www.investopedia.com/terms/f/financial-independence-retire-early-fire.asp
  * Facts:
+ *  - The nominal net interest for most global index funds are about 7%.
  *  - One needs to save 25 to 30 times their yearly expenses (depending on how FAT they want to live in retirement).
  *  - One withdrawls a maximum of 4% annualy plus adjustments for interestRate.
  */
@@ -206,8 +207,9 @@ public class Fire {
         if (currentSavings >= keyFireValue) {
             return years;
         } else {
-            double newSavings = (currentSavings + (monthlySavings * TWELVE_MONTHS)) * (1 + (interestRate / 100));
-            return addInterest(interestRate, monthlySavings, keyFireValue, newSavings, years + 1);
+            double newSavings = currentSavings + (monthlySavings * TWELVE_MONTHS);
+            double newSavingsWithInterest = newSavings * (1 + (interestRate / 100));
+            return addInterest(interestRate, monthlySavings, keyFireValue, newSavingsWithInterest, years + 1);
         }
         
     }
