@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Player {
     private String name;
-    private int winScore;
     private int wins;
     private int draws;
     private int losses;
@@ -13,17 +12,11 @@ public class Player {
 
     Player() {
         name = "unknown";
-        wins = 0;
-        draws = 0;
-        losses = 0;
         bye = false;
     }
 
     Player(String name) {
         this.name = name;
-        wins = 0;
-        draws = 0;
-        losses = 0;
         bye = false;
     }
 
@@ -43,9 +36,6 @@ public class Player {
 
     public int getWinScore() {
         return (wins * multiplier) + draws;
-    }
-    public void setWinScore(int winsScore) {
-        this.winScore += winsScore;
     }
 
     public int getDraws() {
@@ -73,9 +63,6 @@ public class Player {
         this.wins += wins;
         this.draws += draws;
         this.losses += losses;  
-        this.winScore = (wins * multiplier) + draws;
-
-
     }
 
     public void getPlayerinfo() {

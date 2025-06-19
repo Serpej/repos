@@ -176,9 +176,9 @@ public class SwissRoundsWithObjects {
                 int losses = Integer.parseInt(parts[1]);
                 players.get(playerIndex).setPlayerScore(wins, losses, 0);
 
-                // Sets the multiplied score.
+                // increases wins.
                 if (wins > 1) {
-                    players.get(playerIndex).setWinScore(1);
+                    players.get(playerIndex).setPlayerScore(1, losses, playerIndex);
                 }
                 break;
 
