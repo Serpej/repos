@@ -2,30 +2,27 @@ package app;
 
 import inventory.Inventory;
 import utils.Menus;
-import gameUI.GameUI;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner userInput = new Scanner(System.in);
         Menus menu = new Menus();
-        GameUI ui = new GameUI();
         Inventory inventory = new Inventory();
+
+        int choice = 0;
+
+
+
         System.out.println("Welcome to your inventory");
-
         boolean inventoryOpen = true;
-
-
         while (inventoryOpen) {
-            menu.mainMenu();
-            int choice = ui.intInput(userInput);
+            choice = menu.mainMenu();
 
             switch (choice) {
                 case 1:
                     inventory.viewInventory();
                     break;
                 case 2:
-                    //addItem();
+                    inventory.addItem();
                     break;
                 case 3:
                     //removeItem();
