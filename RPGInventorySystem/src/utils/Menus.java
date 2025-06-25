@@ -46,15 +46,14 @@ public class Menus {
             System.out.println();
             System.out.println("1. Add a new armor");
             System.out.println("2. Add a new weapon");
-            System.out.println("3. Add a new potion");
-            System.out.println("4. Add a utility item");
-            System.out.println("5. Exit to main menu");
+            System.out.println("3. Add a utility item");
+            System.out.println("4. Exit to main menu");
             System.out.println();
             choice = ui.intInput(userInput);
             if (choice < 6 && choice > 0) {
                 isWrongNumber = false;
             } else {
-                System.out.println("You need to enter a number between 1 and 5. Try again.");
+                System.out.println("You need to enter a number between 1 and 4. Try again.");
             }
         }
         return choice;

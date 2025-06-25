@@ -16,7 +16,7 @@ public class Inventory {
     
 
     public Inventory() {
-        HealingPotion healingPotion = new HealingPotion("Potion of Healing", 50, 0.5, 4);
+        Utility healingPotion = new Utility("Potion of Healing", 50, 0.5, "Heals 4 + 1d4");
         Armor paddedArmor = new Armor("Padded Armor", 5, 8.0, 11, "Disadvantage", 0);
         Weapon shortSword = new Weapon("Short Sword", 10, 2.0, "1d6 piercing", "Finesse, Light");
         items.add(healingPotion);
@@ -53,13 +53,10 @@ public class Inventory {
                 createWeapon();
                 break;
             case 3:
-                
+                addUtilityItem();
                 break;
             case 4:
-                
-                break;
-            case 5:
-                
+
                 break;
         
             default:
@@ -108,5 +105,22 @@ public class Inventory {
         System.out.println();
         Weapon newWeapon = new Weapon(weaponName, weaponValue, weaponWeight, weaponDamage, weaponProperties);
         items.add(newWeapon);
+    }
+
+        private void addUtilityItem() {
+        System.out.println("Enter a name for the item ");
+        String utilityName = ui.stringInput(userInput);
+        System.out.println();
+        System.out.println("Enter the value for the item: ");
+        int utilityValue = ui.intInput(userInput);
+        System.out.println();
+        System.out.println("Enter the weight for the item: ");
+        double utilityWeight = ui.doubleInput(userInput);
+        System.out.println();
+        System.out.println("Enter any item properites: ");
+        String utilityProperties = ui.stringInput(userInput);
+        System.out.println();
+        Utility newUtility = new Utility(utilityName, utilityValue, utilityWeight, utilityProperties);
+        items.add(newUtility);
     }
 }
