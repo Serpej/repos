@@ -58,4 +58,12 @@ public class Menus {
         }
         return choice;
     }
+
+    public void viewEditUtility() {
+            System.out.println();
+            System.out.println("1. Edit value");
+            System.out.println("2. Edit Weight");
+            System.out.println("3. Edit Properties");
+            System.out.println();
+    }
 }

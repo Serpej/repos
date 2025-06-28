@@ -28,7 +28,7 @@ public class App {
                     inventory.removeItem();
                     break;
                 case 4:
-                    //editItem();
+                    inventory.editItem();
                     break;
                 case 5:
                     //sortInventory();

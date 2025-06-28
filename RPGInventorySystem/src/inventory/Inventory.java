@@ -13,7 +13,7 @@ public class Inventory {
     private ArrayList<Item> items = new ArrayList<>();
     Scanner userInput = new Scanner(System.in);
     GameUI ui = new GameUI();
-    
+    Menus menu = new Menus();
 
     public Inventory() {
         Utility healingPotion = new Utility("Potion of Healing", 50, 0.5, "Heals 4 + 1d4");
@@ -40,7 +40,7 @@ public class Inventory {
     }
 
     public void addItem() {
-        Menus menu = new Menus();
+        
         System.out.println();
         System.out.println(" Enter a number to choose what to add:");
         System.out.println();
@@ -143,5 +143,66 @@ public class Inventory {
             System.out.println("Item not found.");
         }
         
+    }
+
+    public void editItem() {
+        Item itemToEdit = null;
+        int answerInt = 0;
+        System.out.println();
+        System.out.println("Enter the name of an item you want to edit: ");
+        String answerString = ui.stringInput(userInput);
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(answerString)) {
+                itemToEdit= item;
+                break;
+            } else {
+            System.out.println();
+            System.out.println("Item not found.");
+            }
+        } 
+        if (itemToEdit instanceof Weapon) {
+            System.out.println("Enter the number of the attribute you want to change: ");
+            answerInt = ui.intInput(userInput);
+        } else if (itemToEdit instanceof Armor) {
+            System.out.println("Enter the number of the attribute you want to change: ");
+            answerInt = ui.intInput(userInput);
+        } else if (itemToEdit instanceof Utility) {
+            editUtilityItem(itemToEdit);
+        }
+    }
+
+    public void editUtilityItem(Item itemToEdit) {
+        int answerInt = 0;
+        System.out.println();
+        System.out.println("Enter the number of the attribute you want to change: ");
+        menu.viewEditUtility();
+        answerInt = ui.intInput(userInput);
+        switch (answerInt) {
+            case 1:
+                System.out.println("Enter a new value: ");
+                answerInt = ui.intInput(userInput);
+                itemToEdit.setValue(answerInt);
+                System.out.println("The new value of " + itemToEdit.getName() + " is " + answerInt + " gp.");
+                break;
+                    
+            case 2:
+                double answerDouble = 0.0;
+                System.out.println("Enter a new weight: ");
+                answerDouble = ui.doubleInput(userInput);
+                itemToEdit.setWeight(answerDouble);
+                System.out.println("The new weight of " + itemToEdit.getName() + " is " + answerDouble + " lb.");
+                break;
+        
+            case 3:
+                String answerString = "";
+                System.out.println("Enter the new properties for the item: ");
+                answerString = ui.stringInput(userInput);
+                ((Utility) itemToEdit).setProperties(answerString);
+                System.out.println(itemToEdit.getName() + " has been edited.");
+                break;
+        
+            default:
+                break;
+        }
     }
 }

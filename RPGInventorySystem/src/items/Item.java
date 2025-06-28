@@ -15,11 +15,26 @@ public class Item {
         return name;
     }
 
+    public String setName(String name) {
+        this.name = name;
+        return name;
+    }
+
     public int getValue() {
         return value;
     }
 
+    public int setValue(int value) {
+        this.value = value;
+        return value;
+    }
+
     public double getWeight() {
+        return weight;
+    }
+
+    public double setWeight(double weight) {
+        this.weight = weight;
         return weight;
     }
 

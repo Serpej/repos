@@ -12,6 +12,15 @@ public class Utility extends Item {
         this.properties = properties;
     }
 
+    public String getProperties(String properties) {
+        return properties;
+    } 
+
+    public String setProperties(String properties) {
+        this.properties = properties;
+        return properties; 
+    }
+
     @Override
     public String toString() {
         return getName() + ":\n" + properties + "\n(Value: " + value + " gp, Weight: " + weight + " lb)";
