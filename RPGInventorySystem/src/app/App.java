@@ -25,7 +25,7 @@ public class App {
                     inventory.addItem();
                     break;
                 case 3:
-                    //removeItem();
+                    inventory.removeItem();
                     break;
                 case 4:
                     //editItem();

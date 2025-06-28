@@ -123,4 +123,25 @@ public class Inventory {
         Utility newUtility = new Utility(utilityName, utilityValue, utilityWeight, utilityProperties);
         items.add(newUtility);
     }
+
+    public void removeItem() {
+        Item itemToRemove = null;
+        System.out.println("Enter the name of an item you want removed: ");
+        String answer = ui.stringInput(userInput);
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(answer)) {
+                itemToRemove = item;
+                break;
+            }
+        }
+        if (itemToRemove != null) {
+            System.out.println();
+            items.remove(itemToRemove);
+            System.out.println(itemToRemove.getName() + " was removed form your inventory.");
+        } else {
+            System.out.println();
+            System.out.println("Item not found.");
+        }
+        
+    }
 }
