@@ -174,11 +174,12 @@ public class SwissRoundsWithObjects {
                 String[] parts = tempInput.split("[ -]");
                 int wins = Integer.parseInt(parts[0]);
                 int losses = Integer.parseInt(parts[1]);
-                players.get(playerIndex).setPlayerScore(wins, losses, 0);
 
                 // increases wins.
-                if (wins > 1) {
-                    players.get(playerIndex).setPlayerScore(1, losses, playerIndex);
+                if (wins >= 1) {
+                    players.get(playerIndex).setPlayerScore(1, losses, 0);
+                } else {
+                    players.get(playerIndex).setPlayerScore(wins, losses, 0);
                 }
                 break;
 
