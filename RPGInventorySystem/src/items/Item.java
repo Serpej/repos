@@ -1,6 +1,8 @@
 package items;
+import gameUI.GameUI;
+import utils.Menus;
 
-public class Item {
+public abstract class Item {
     protected String name;
     protected int value;
     protected double weight;
@@ -10,6 +12,12 @@ public class Item {
         this.value = value;
         this.weight =  weight;
     }
+
+    public String toString() {
+        return getName() + " (Value: " + value + " gp, Weight: " + weight + " lb).";
+    }
+
+    public abstract void edit(GameUI ui, Menus menu);
 
     public String getName() {
         return name;
@@ -44,11 +52,5 @@ public class Item {
 
     public void use() {
         System.out.println("You use the " + name + ".");
-    }
-
-
-
-    public String toString() {
-        return getName() + " (Value: " + value + " gp, Weight: " + weight + " lb).";
     }
 }

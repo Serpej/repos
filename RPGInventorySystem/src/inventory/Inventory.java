@@ -53,10 +53,12 @@ public class Inventory {
                 createWeapon();
                 break;
             case 3:
-                addUtilityItem();
+                createUtilityItem();
                 break;
             case 4:
-
+                System.out.println();
+                System.out.println("Exiting to main menu.");
+                System.out.println();
                 break;
         
             default:
@@ -66,22 +68,22 @@ public class Inventory {
 
     private void createArmor() {
         System.out.println("Enter a name for the Armor: ");
-        String armorName = ui.stringInput(userInput);
+        String armorName = ui.stringInput();
         System.out.println();
         System.out.println("Enter the value for the Armor: ");
-        int armorValue = ui.intInput(userInput);
+        int armorValue = ui.intInput();
         System.out.println();
         System.out.println("Enter the weight for the Armor: ");
-        double armorWeight = ui.doubleInput(userInput);
+        double armorWeight = ui.doubleInput();
         System.out.println();
         System.out.println("Enter the Armor Class for the Armor: ");
-        int armorClass = ui.intInput(userInput);
+        int armorClass = ui.intInput();
         System.out.println();
         System.out.println("Does the armor gives you disadvantage on stealth? Enter 'Disadvantage' or 'None': ");
-        String armorStealth = ui.stringInput(userInput);
+        String armorStealth = ui.stringInput();
         System.out.println();
         System.out.println("Enter the required Strength for the Armor: ");
-        int armorStrength = ui.intInput(userInput);
+        int armorStrength = ui.intInput();
         System.out.println();
         Armor newArmor = new Armor(armorName, armorValue, armorWeight, armorClass, armorStealth, armorStrength);
         items.add(newArmor);
@@ -89,36 +91,36 @@ public class Inventory {
 
     private void createWeapon() {
         System.out.println("Enter a name for the Weapon: ");
-        String weaponName = ui.stringInput(userInput);
+        String weaponName = ui.stringInput();
         System.out.println();
         System.out.println("Enter the value for the Weapon: ");
-        int weaponValue = ui.intInput(userInput);
+        int weaponValue = ui.intInput();
         System.out.println();
         System.out.println("Enter the weight for the Weapon: ");
-        double weaponWeight = ui.doubleInput(userInput);
+        double weaponWeight = ui.doubleInput();
         System.out.println();
         System.out.println("Enter the weapon damage: ");
-        String weaponDamage = ui.stringInput(userInput);
+        String weaponDamage = ui.stringInput();
         System.out.println();
         System.out.println("Enter any weapon properites: ");
-        String weaponProperties = ui.stringInput(userInput);
+        String weaponProperties = ui.stringInput();
         System.out.println();
         Weapon newWeapon = new Weapon(weaponName, weaponValue, weaponWeight, weaponDamage, weaponProperties);
         items.add(newWeapon);
     }
 
-        private void addUtilityItem() {
+        private void createUtilityItem() {
         System.out.println("Enter a name for the item ");
-        String utilityName = ui.stringInput(userInput);
+        String utilityName = ui.stringInput();
         System.out.println();
         System.out.println("Enter the value for the item: ");
-        int utilityValue = ui.intInput(userInput);
+        int utilityValue = ui.intInput();
         System.out.println();
         System.out.println("Enter the weight for the item: ");
-        double utilityWeight = ui.doubleInput(userInput);
+        double utilityWeight = ui.doubleInput();
         System.out.println();
         System.out.println("Enter any item properites: ");
-        String utilityProperties = ui.stringInput(userInput);
+        String utilityProperties = ui.stringInput();
         System.out.println();
         Utility newUtility = new Utility(utilityName, utilityValue, utilityWeight, utilityProperties);
         items.add(newUtility);
@@ -127,13 +129,14 @@ public class Inventory {
     public void removeItem() {
         Item itemToRemove = null;
         System.out.println("Enter the name of an item you want removed: ");
-        String answer = ui.stringInput(userInput);
+        String answer = ui.stringInput();
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(answer)) {
                 itemToRemove = item;
                 break;
             }
         }
+
         if (itemToRemove != null) {
             System.out.println();
             items.remove(itemToRemove);
@@ -147,62 +150,25 @@ public class Inventory {
 
     public void editItem() {
         Item itemToEdit = null;
-        int answerInt = 0;
+        boolean found = false;
         System.out.println();
         System.out.println("Enter the name of an item you want to edit: ");
-        String answerString = ui.stringInput(userInput);
+        String answerString = ui.stringInput();
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(answerString)) {
                 itemToEdit= item;
+                found = true;
                 break;
-            } else {
+            }
+        }
+
+        if (!found) {
             System.out.println();
             System.out.println("Item not found.");
-            }
-        } 
-        if (itemToEdit instanceof Weapon) {
-            System.out.println("Enter the number of the attribute you want to change: ");
-            answerInt = ui.intInput(userInput);
-        } else if (itemToEdit instanceof Armor) {
-            System.out.println("Enter the number of the attribute you want to change: ");
-            answerInt = ui.intInput(userInput);
-        } else if (itemToEdit instanceof Utility) {
-            editUtilityItem(itemToEdit);
+        } else {
+            itemToEdit.edit(ui, menu);
         }
+
     }
 
-    public void editUtilityItem(Item itemToEdit) {
-        int answerInt = 0;
-        System.out.println();
-        System.out.println("Enter the number of the attribute you want to change: ");
-        menu.viewEditUtility();
-        answerInt = ui.intInput(userInput);
-        switch (answerInt) {
-            case 1:
-                System.out.println("Enter a new value: ");
-                answerInt = ui.intInput(userInput);
-                itemToEdit.setValue(answerInt);
-                System.out.println("The new value of " + itemToEdit.getName() + " is " + answerInt + " gp.");
-                break;
-                    
-            case 2:
-                double answerDouble = 0.0;
-                System.out.println("Enter a new weight: ");
-                answerDouble = ui.doubleInput(userInput);
-                itemToEdit.setWeight(answerDouble);
-                System.out.println("The new weight of " + itemToEdit.getName() + " is " + answerDouble + " lb.");
-                break;
-        
-            case 3:
-                String answerString = "";
-                System.out.println("Enter the new properties for the item: ");
-                answerString = ui.stringInput(userInput);
-                ((Utility) itemToEdit).setProperties(answerString);
-                System.out.println(itemToEdit.getName() + " has been edited.");
-                break;
-        
-            default:
-                break;
-        }
-    }
 }

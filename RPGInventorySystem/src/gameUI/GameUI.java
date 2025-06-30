@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class GameUI {
     
+    private Scanner userInput;
+
     public GameUI() {
-    Scanner userInput = new Scanner(System.in);
+    userInput = new Scanner(System.in);
     userInput.useDelimiter("[\\s.,]+");
     }
 
-    public int intInput(Scanner userInput) {
+    public int intInput() {
         int number = 0;
         while (true) {
             if (userInput.hasNextInt()) {
@@ -25,7 +27,7 @@ public class GameUI {
         return number;
     }
 
-        public double doubleInput(Scanner userInput) {
+        public double doubleInput() {
         double number = 0.0;
         while (true) {
 
@@ -42,7 +44,7 @@ public class GameUI {
         return number;
     }
 
-    public String stringInput(Scanner userInput) {
+    public String stringInput() {
         String s = "";
         while (true) {
             

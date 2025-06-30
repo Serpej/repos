@@ -25,7 +25,7 @@ public class Menus {
             System.out.println("5. Sort inventory");
             System.out.println("6. Exit inventory");
             System.out.println();
-            choice = ui.intInput(userInput);
+            choice = ui.intInput();
             if (choice < 7 && choice > 0) {
                 isWrongNumber = false;
             } else {
@@ -49,7 +49,7 @@ public class Menus {
             System.out.println("3. Add a utility item");
             System.out.println("4. Exit to main menu");
             System.out.println();
-            choice = ui.intInput(userInput);
+            choice = ui.intInput();
             if (choice < 6 && choice > 0) {
                 isWrongNumber = false;
             } else {
@@ -59,11 +59,34 @@ public class Menus {
         return choice;
     }
 
-    public void viewEditUtility() {
-            System.out.println();
-            System.out.println("1. Edit value");
-            System.out.println("2. Edit Weight");
-            System.out.println("3. Edit Properties");
-            System.out.println();
+    public void viewEditWeapon() {
+        System.out.println();
+        System.out.println("1. Edit value");
+        System.out.println("2. Edit weight");
+        System.out.println("3. Edit damage");
+        System.out.println("4. Edit properties");
+        System.out.println();
     }
+    
+
+    public void viewEditArmor() {
+        System.out.println();
+        System.out.println("1. Edit value");
+        System.out.println("2. Edit weight");
+        System.out.println("3. Edit armor class");
+        System.out.println("4. Edit disadvantage on stealth for armor");
+        System.out.println("4. Edit the required strength for the armor");
+        System.out.println();
+    }
+
+
+    public void viewEditUtility() {
+        System.out.println();
+        System.out.println("1. Edit value");
+        System.out.println("2. Edit weight");
+        System.out.println("3. Edit properties");
+        System.out.println();
+    }
+
+
 }
