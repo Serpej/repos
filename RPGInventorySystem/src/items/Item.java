@@ -1,16 +1,19 @@
 package items;
 import gameUI.GameUI;
 import utils.Menus;
+import java.time.LocalDateTime;
 
 public abstract class Item {
     protected String name;
     protected int value;
     protected double weight;
+    protected LocalDateTime createdAt;
 
     public Item(String name, int value, double weight) {
         this.name = name;
         this.value = value;
         this.weight =  weight;
+        this.createdAt = LocalDateTime.now();
     }
 
     public String toString() {
@@ -50,7 +53,7 @@ public abstract class Item {
         return name + " (value: " + value + " weight: " + weight + ")."; 
     }
 
-    public void use() {
-        System.out.println("You use the " + name + ".");
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 }

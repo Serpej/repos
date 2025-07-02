@@ -12,7 +12,7 @@ public class Armor extends Item {
     private int requiredStrength = 0;
 
     public Armor(String name, int value, double weight, int armorClass, String stealth, int requiredStrength) {
-        super(name, value, weight); //Call the contstructor in Item!
+        super(name, value, weight);
         this.armorClass = armorClass;
         this.stealth = stealth;
         this.requiredStrength = requiredStrength;

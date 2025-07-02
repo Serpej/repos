@@ -88,5 +88,11 @@ public class Menus {
         System.out.println();
     }
 
+    public void sortMenu() {
+        System.out.println();
+        System.out.println("1. Alphabetical");
+        System.out.println("2. By type");
+        System.out.println("3. Chronolocial");
+    }
 
 }

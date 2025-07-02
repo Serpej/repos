@@ -31,7 +31,7 @@ public class App {
                     inventory.editItem();
                     break;
                 case 5:
-                    //sortInventory();
+                    inventory.sortInventory(inventory);
                     break;
                 case 6:
                     System.out.println("Closing Inventory");

@@ -171,4 +171,23 @@ public class Inventory {
 
     }
 
+    public void sortInventory() {
+        System.out.println("How would you like to sort your Inventory? Enter a number: ");
+        menu.sortInventoryMenu();
+        int answerInt = ui.intInput();
+        switch(answerInt) {
+            case 1:
+                //sortAlpabetically(items);
+                break;
+            
+            case 2:
+                //sortByType(items);
+                break;
+
+            case 3:
+                //sortChronologically(items);
+                break;
+        }
+    }
+
 }
