@@ -1,3 +1,6 @@
+/** 
+ * This class contains all the information to create and edit an armor.
+ */
 package items;
 
 import gameUI.GameUI;
@@ -15,7 +18,37 @@ public class Armor extends Item {
         this.requiredStrength = requiredStrength;
     }
 
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public String getStealth() {
+        return stealth;
+    }
+
+    public void setStealth(String stealth) {
+        this.stealth = stealth;
+    }
+
+    public int getRequiredStrength() {
+        return requiredStrength;
+    }
+
+    public void setRequiredStrength(int requiredStrength) {
+        this.requiredStrength = requiredStrength;
+    }
+
+
     @Override
+    public String toString() {
+        return getName() + ":\nAC: " + armorClass + "\nStealth: " + stealth + "\nRequired Strength: " + requiredStrength + "\n(Value: " + value + " gp, Weight: " + weight + " lb)";
+    }
+
+     @Override
     public void edit(GameUI ui, Menus menu) {
         int answerInt = 0;
         String answerString = "";
@@ -62,35 +95,5 @@ public class Armor extends Item {
             default:
                 break;
         }
-    }
-
-    public int getArmorClass() {
-        return armorClass;
-    }
-
-    public void setArmorClass(int armorClass) {
-        this.armorClass = armorClass;
-    }
-
-    public String getStealth() {
-        return stealth;
-    }
-
-    public void setStealth(String stealth) {
-        this.stealth = stealth;
-    }
-
-    public int getRequiredStrength() {
-        return requiredStrength;
-    }
-
-    public void setRequiredStrength(int requiredStrength) {
-        this.requiredStrength = requiredStrength;
-    }
-
-
-    @Override
-    public String toString() {
-        return getName() + ":\nAC: " + armorClass + "\nStealth: " + stealth + "\nRequired Strength: " + requiredStrength + "\n(Value: " + value + " gp, Weight: " + weight + " lb)";
     }
 }

@@ -1,3 +1,6 @@
+/** 
+ * This class contains all the information to create and edit a Weapon.
+ */
 package items;
 
 import gameUI.GameUI;
@@ -11,48 +14,6 @@ public class Weapon extends Item{
         super(name, value, weight);
         this.damage = damage;
         this.properties = properties;
-    }
-
-    @Override
-    public void edit(GameUI ui, Menus menu) {
-            int answerInt = 0;
-            String answerString = "";
-            double answerDouble = 0.0;
-            System.out.println();
-            System.out.println("Enter the number of the attribute you want to change: ");
-            menu.viewEditWeapon();
-            answerInt = ui.intInput();
-            switch (answerInt) {
-                case 1:
-                    System.out.println("Enter a new value: ");
-                    answerInt = ui.intInput();
-                    setValue(answerInt);
-                    System.out.println("The new value of " + getName() + " is " + answerInt + " gp.");
-                    break;
-                        
-                case 2:
-                    System.out.println("Enter a new weight: ");
-                    answerDouble = ui.doubleInput();
-                    setWeight(answerDouble);
-                    System.out.println("The new weight of " + getName() + " is " + answerDouble + " lb.");
-                    break;
-            
-                case 3:
-                    System.out.println("Enter the new damage for the item: ");
-                    answerString = ui.stringInput();
-                    setDamage(answerString);
-                    System.out.println(getName() + " has been edited.");
-                    break;
-                
-                case 4:
-                    System.out.println("Enter the new properties for the item: ");
-                    answerString = ui.stringInput();
-                    setProperties(answerString);
-                    System.out.println(getName() + " has been edited.");
-                    break;
-                default:
-                    break;
-            }
     }
 
     public String getDamage() {
@@ -74,5 +35,47 @@ public class Weapon extends Item{
     @Override
     public String toString() {
         return getName() + ":\nDamage: " + damage + "\nProperties: " + properties + "\n(Value: " + value + " gp, Weight: " + weight + " lb)";
+    }
+
+    @Override
+    public void edit(GameUI ui, Menus menu) {
+        int answerInt = 0;
+        String answerString = "";
+        double answerDouble = 0.0;
+        System.out.println();
+        System.out.println("Enter the number of the attribute you want to change: ");
+        menu.viewEditWeapon();
+        answerInt = ui.intInput();
+        switch (answerInt) {
+            case 1:
+                System.out.println("Enter a new value: ");
+                answerInt = ui.intInput();
+                setValue(answerInt);
+                System.out.println("The new value of " + getName() + " is " + answerInt + " gp.");
+                break;
+                    
+            case 2:
+                System.out.println("Enter a new weight: ");
+                answerDouble = ui.doubleInput();
+                setWeight(answerDouble);
+                System.out.println("The new weight of " + getName() + " is " + answerDouble + " lb.");
+                break;
+        
+            case 3:
+                System.out.println("Enter the new damage for the item: ");
+                answerString = ui.stringInput();
+                setDamage(answerString);
+                System.out.println(getName() + " has been edited.");
+                break;
+            
+            case 4:
+                System.out.println("Enter the new properties for the item: ");
+                answerString = ui.stringInput();
+                setProperties(answerString);
+                System.out.println(getName() + " has been edited.");
+                break;
+            default:
+                break;
+        }
     }
 }
