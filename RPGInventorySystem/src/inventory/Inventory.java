@@ -1,5 +1,7 @@
 package inventory;
 
+import java.util.Collections;
+import java.util.Comparator;
 import items.*;
 import utils.Menus;
 import java.util.ArrayList;
@@ -177,17 +179,38 @@ public class Inventory {
         int answerInt = ui.intInput();
         switch(answerInt) {
             case 1:
-                //sortAlpabetically(items);
+                sortAlpabetically();
                 break;
             
             case 2:
-                //sortByType(items);
+                sortByType();
                 break;
 
             case 3:
-                //sortChronologically(items);
+                sortChronologically();
                 break;
         }
+    }
+
+    public void sortAlpabetically() {
+        Collections.sort(items, Comparator.comparing(Item::getName));
+        System.out.println();
+        System.out.println("Inventory was sorted alpabetically.");
+        System.out.println();
+    }
+
+    public void sortByType() {
+        Collections.sort(items, Comparator.comparing(items -> items.getClass().getSimpleName()));
+        System.out.println();
+        System.out.println("Inventory was sorted by type.");
+        System.out.println();
+    }
+
+    public void sortChronologically() {
+        Collections.sort(items, Comparator.comparing(Item::getCreatedAt).reversed());
+        System.out.println();
+        System.out.println("Inventory was sorted chronologically.");
+        System.out.println();
     }
 
 }

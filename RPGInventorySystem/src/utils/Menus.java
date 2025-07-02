@@ -88,7 +88,7 @@ public class Menus {
         System.out.println();
     }
 
-    public void sortMenu() {
+    public void sortInventoryMenu() {
         System.out.println();
         System.out.println("1. Alphabetical");
         System.out.println("2. By type");
