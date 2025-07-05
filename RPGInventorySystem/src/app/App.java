@@ -1,3 +1,16 @@
+/**
+ *  Alchemy System
+ * Concept: Combine Ingredient subclasses (like Herb, Mineral, Essence) to create Potion objects.
+ *
+ * Use a Map<String, Ingredient> and Map<String, Recipe>.
+ *
+ * Include polymorphic applyEffect() methods.
+ * 
+ * Great for reinforcing HashMap usage.
+ *
+ * Prepares you for database tables of ingredients and recipes.
+ */
+
 package app;
 
 import inventory.Inventory;
