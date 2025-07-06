@@ -1,11 +1,11 @@
 package ui;
 import java.util.Scanner;
 
-public class ui {
+public class Ui {
 
     private Scanner userInput;
 
-    public ui() {
+    public Ui() {
     userInput = new Scanner(System.in);
     userInput.useDelimiter("[\\s.,]+");
     }
