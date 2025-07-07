@@ -16,26 +16,22 @@ public class App {
             intAnswer = inputs.intInput();
             switch (intAnswer) {
                 case 1:
-                    //addPotion
+                    //viewIngredients
                     break;
                     
                 case 2:
-                    
+                    //viewRecipies
                     break;
 
                 case 3:
-                    
+                    //craftPotion
                     break;
 
                 case 4:
-                    
+                    //viewCraftedPotions
                     break;
                     
                 case 5:
-                    
-                    break;
-
-                case 6:
                     System.out.println("Exiting program.");
                     System.exit(0);
                     break;

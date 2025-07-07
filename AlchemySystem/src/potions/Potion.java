@@ -38,8 +38,10 @@ public class Potion {
         for (Ingredient ingredient : ingredients) {
             System.out.println();
             ingredient.getName();
-            ingredient.describe();
+            ingredient.describe(); // calls polymorph
 
         }
     }
+
+    
 }
