@@ -1,9 +1,9 @@
 package ingredients;
 
 public abstract class Ingredient {
-    protected String name = "";
-    protected String rarity = "";
-    protected String properties = "";
+    private String name = "";
+    private String rarity = "";
+    private String properties = "";
 
     public Ingredient(String name, String rarity, String properties) {
         this.name = name;

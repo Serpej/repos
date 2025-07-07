@@ -1,3 +1,7 @@
+/**
+ * This class is for created potions.
+ */
+
 package potions;
 
 import ingredients.*;

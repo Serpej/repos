@@ -1,3 +1,7 @@
+/**
+ * This class is for individual recipes, made out of different ingredients in different quantites.
+ */
+
 package recipes;
 
 import java.util.Map;
