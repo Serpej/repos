@@ -9,5 +9,20 @@ import java.util.Map;
 
 public class RecipeBook {
     
-    protected Map<String, Recipe> recipes = new HashMap<>();
+    private Map<String, Recipe> recipes = new HashMap<>();
+
+    public void addRecipe(Recipe recipe) {
+    recipes.put(recipe.getPotionName(), recipe);
+    }
+
+    public Recipe getRecipe(String potionName) {
+        return recipes.get(potionName);
+    }
+
+    public boolean hasRecipe(String potionName) {
+        return recipes.containsKey(potionName);
+    }
 }
+
+
+

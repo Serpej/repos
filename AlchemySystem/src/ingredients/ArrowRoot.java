@@ -11,6 +11,11 @@ public class ArrowRoot extends Ingredient {
     }
 
     @Override
+    public String toString() {
+        return "Arrow Root";
+    }
+
+    @Override
     public String describe() {
         return description;
     }

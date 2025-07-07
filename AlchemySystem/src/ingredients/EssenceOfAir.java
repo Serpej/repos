@@ -9,6 +9,11 @@ public class EssenceOfAir extends Ingredient {
         this.description = description;
     }
 
+
+    @Override
+    public String toString() {
+        return "Essence of Air";
+    }
     @Override
     public String describe() {
         return description;

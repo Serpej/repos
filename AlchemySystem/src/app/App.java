@@ -18,7 +18,7 @@ public class App {
 
         // Define the required ingredients by name and quantity
         Map<String, Integer> potionOfPrecisionIngredients = new HashMap<>();
-        potionOfPrecisionIngredients.put("ArrowRoot", 1);
+        potionOfPrecisionIngredients.put("Arrow Root", 1);
         potionOfPrecisionIngredients.put("Essence of Air", 1);
         potionOfPrecisionIngredients.put("Calendula", 2);
 

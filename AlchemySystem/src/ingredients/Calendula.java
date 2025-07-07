@@ -10,6 +10,11 @@ public class Calendula extends Ingredient {
     }
 
     @Override
+    public String toString() {
+        return "Calendula";
+    }
+
+    @Override
     public String describe() {
         return description;
     }
