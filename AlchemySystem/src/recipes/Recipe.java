@@ -22,8 +22,4 @@ public class Recipe {
     public Map<String, Integer> getRequiredIngredients() {
         return requiredIngredients;
     }
-
-    public void addRecipe() {
-
-    }
 }

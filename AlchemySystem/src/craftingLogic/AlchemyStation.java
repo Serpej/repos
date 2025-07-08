@@ -9,5 +9,10 @@ import recipes.*;
 
 public class AlchemyStation {
 
+    public void craftPotion() {
+        System.out.println("Enter an ingredient from the list of ingredients:");
+
+        
+    }
 
 }

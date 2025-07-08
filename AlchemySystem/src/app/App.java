@@ -14,16 +14,9 @@ public class App {
         Ui inputs = new Ui();
         int intAnswer = 0;
 
-        RecipeBook book = new RecipeBook();
+        RecipeBook bookOfRecipes = new RecipeBook();
 
-        // Define the required ingredients by name and quantity
-        Map<String, Integer> potionOfPrecisionIngredients = new HashMap<>();
-        potionOfPrecisionIngredients.put("Arrow Root", 1);
-        potionOfPrecisionIngredients.put("Essence of Air", 1);
-        potionOfPrecisionIngredients.put("Calendula", 2);
-
-        // Create the recipe object
-        Recipe potionOfPrecisionRecipe = new Recipe("Potion of Precision", potionOfPrecisionIngredients);
+        
 
         System.out.println("Welcome to the Alchemy table!");
         System.out.println();
@@ -36,11 +29,11 @@ public class App {
             intAnswer = inputs.intInput();
             switch (intAnswer) {
                 case 1:
-                    //viewIngredients
+                    bookOfRecipes.displayIngredients();
                     break;
                     
                 case 2:
-                    //viewRecipies
+                    bookOfRecipes.displayRecipes();
                     break;
 
                 case 3:

@@ -3,11 +3,10 @@ package ingredients;
 
 public class ArrowRoot extends Ingredient {
 
-    String description = "A thick white starchy powder, ingesting it enhances precision.";
+    String description = "A thick white starchy powder without any special smell of taste.";
 
-    public ArrowRoot(String name, String rarity, String properties, String description) {
-        super(name, rarity, properties);
-        this.description = description;
+    public ArrowRoot() {
+        super("Arrow Root", "Common", "Enhances precision");
     }
 
     @Override
