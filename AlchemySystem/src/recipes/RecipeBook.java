@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Comparator;
 
 
 import ingredients.*;
@@ -41,6 +42,7 @@ public class RecipeBook {
     }
 
     public List<Ingredient> getAllIngredientsSorted() {
+        ingredientLibrary.sort(Comparator.comparing(Ingredient::getType));
         return Collections.unmodifiableList(ingredientLibrary);
     } 
 
