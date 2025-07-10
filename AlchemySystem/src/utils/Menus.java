@@ -1,6 +1,5 @@
 package utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import recipes.*;
@@ -28,6 +27,7 @@ public class Menus {
             int bullet = i + 1;
             System.out.println( bullet + ". "+ recipeBook.getAllIngredientsSorted().get(i).getName());
             System.out.println("  " + "'" + recipeBook.getAllIngredientsSorted().get(i).describe() + "'");
+            System.out.println("-------------------------------------------------------");
             System.out.println();
         }
     }
