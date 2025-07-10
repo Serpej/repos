@@ -18,5 +18,10 @@ public class ArrowRoot extends Ingredient {
     public String describe() {
         return description;
     }
+
+    @Override
+    public String getType() {
+        return "Herb";
+    }
 }
 

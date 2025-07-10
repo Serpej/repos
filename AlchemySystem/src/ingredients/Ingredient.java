@@ -28,4 +28,6 @@ public abstract class Ingredient {
     }
 
     public abstract String describe();
+
+    public abstract String getType();
 }
