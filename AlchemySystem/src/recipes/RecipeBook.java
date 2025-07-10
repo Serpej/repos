@@ -26,40 +26,27 @@ public class RecipeBook {
         ingredientLibrary.add(new ArrowRoot());
         ingredientLibrary.add(new Calendula());
         ingredientLibrary.add(new EssenceOfAir());
+        ingredientLibrary.add(new Water());
+        ingredientLibrary.add(new EssenceOfFire());
+        ingredientLibrary.add(new Coal());
+        ingredientLibrary.add(new Capsicum());
         // Add more as needed
     }
 
     private void loadRecipes() {
         // adding a recipe to the ArrayList (A recipe object contains a potionName and a map (which contains any numner of key:values, in this case "ingredient name", quantity))
-        recipes.add(new Recipe("Potion of Precision", Map.of("Arrow Root", 2, "Essence of Air", 1, "Calendula", 2)));
+        recipes.add(new Recipe("Potion of Precision", Map.of("Water", 1, "Arrow Root", 2, "Essence of Air", 1, "Calendula", 2)));
+        recipes.add(new Recipe("Potion of Fire Breathing", Map.of("Water", 1, "Essence of Fire", 1, "Coal", 1, "Capsicum", 1)));
+
     }
 
-    public List<Ingredient> getAllIngredients() {
+    public List<Ingredient> getAllIngredientsSorted() {
         return Collections.unmodifiableList(ingredientLibrary);
     } 
 
     public List<Recipe> getAllRecipes() {
         return Collections.unmodifiableList(recipes);
     } 
-
-    public void displayIngredients() {
-        System.out.println("==== List of Ingredients ====");
-        System.out.println();
-        for (int i = 0; i < ingredientLibrary.size(); i++) {
-            int bullet = i + 1;
-            System.out.println( bullet + ". "+ ingredientLibrary.get(i).getName());
-            System.out.println("  " + "'" + ingredientLibrary.get(i).describe() + "'");
-            System.out.println();
-        }
-    }
-
-    public void displayRecipes() {
-        System.out.println("==== List of known Recipes ====");
-        for (Recipe recipe : recipes) {
-            System.out.println("- " + recipe.getPotionName());
-        }
-        System.out.println();
-    }
 }
 
 

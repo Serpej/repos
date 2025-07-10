@@ -18,7 +18,7 @@ public class EssenceOfFire extends Ingredient {
         return description;
     }
 
-        @Override
+    @Override
     public String getType() {
         return "Essence";
     }

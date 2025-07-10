@@ -29,11 +29,11 @@ public class App {
             intAnswer = inputs.intInput();
             switch (intAnswer) {
                 case 1:
-                    bookOfRecipes.displayIngredients();
+                    menus.displayIngredients();
                     break;
                     
                 case 2:
-                    bookOfRecipes.displayRecipes();
+                    menus.displayRecipes();
                     break;
 
                 case 3:

@@ -18,7 +18,7 @@ public class Coal extends Ingredient {
         return description;
     }
 
-        @Override
+    @Override
     public String getType() {
         return "Mineral";
     }
