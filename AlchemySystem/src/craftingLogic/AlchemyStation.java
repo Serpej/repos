@@ -18,16 +18,16 @@ public class AlchemyStation {
         System.out.println("==== Alechemy Station ====");
         System.out.println();
         System.out.println("So, you want to create a potion?");
-        System.out.println("Choose a potion to see the ingre");
+        System.out.println("Enter a number to choose a potion to see the what ingredients it requires: ");
         menus.displayRecipes();
         int answer = ui.intInput();
-        //Maybe this should be a separate method in main menu? 
-        
+        //switch case time!
+    }
 
-
+    public void addIngredients() {
         System.out.println("Enter an ingredient from the list of ingredients using the numbers:");
         menus.displayIngredients();
-        answer = ui.intInput();
+        int answer = ui.intInput();
         // Find the potion using the arrayList index (-1).
         // Add ingredient to new potion
         // When done, add it to the list of recipes (if it succeeds).
