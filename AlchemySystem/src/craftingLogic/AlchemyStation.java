@@ -4,9 +4,12 @@
 
 package craftingLogic;
 
+import java.util.List;
+
 import recipes.*;
 import ui.Ui;
 import utils.Menus;
+import ingredients.*;
 
 public class AlchemyStation {
     RecipeBook recipeBook = new RecipeBook();
@@ -22,12 +25,33 @@ public class AlchemyStation {
         menus.displayRecipes();
         int answer = ui.intInput();
         //switch case time!
+        // Make this when you've made all your potions
     }
 
     public void addIngredients() {
         System.out.println("Enter an ingredient from the list of ingredients using the numbers:");
         menus.displayIngredients();
         int answer = ui.intInput();
+
+        //Make a new list (from the sorted method in Recipe Book)
+        List<Ingredient> ingredients = recipeBook.getAllIngredientsSorted();
+
+        // Check if the list contains the number.
+        while (true) {
+            if (answer > 0 && answer <= ingredients.size()) {
+                for(int i = 0; i < ingredients.size(); i++) {
+                    int rightPotionIndex = answer - 1;
+                    if (i == rightPotionIndex) {
+                        // Add ingredient to they concotion (List?)
+                    }
+                    break;
+                }
+            } else {
+                System.out.println("Invalid potion number, try again.");
+            }
+        }
+
+
         // Find the potion using the arrayList index (-1).
         // Add ingredient to new potion
         // When done, add it to the list of recipes (if it succeeds).

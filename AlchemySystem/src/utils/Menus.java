@@ -37,11 +37,10 @@ public class Menus {
         System.out.println("==== List of known Recipes ====");
         System.out.println();
         List<Recipe> recipes = recipeBook.getAllRecipes();
-        for (Recipe recipe : recipes) {
-            System.out.println("- " + recipe.getPotionName());
+        for (int i = 0; i < recipes.size(); i++) {
+            int bulletCounter = 1 + i;
+            System.out.println(bulletCounter+ ". " + recipes.get(i).getPotionName());
         }
         System.out.println();
     }
-
-    public void 
 }
