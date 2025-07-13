@@ -29,15 +29,15 @@ public class App {
             intAnswer = inputs.intInput();
             switch (intAnswer) {
                 case 1:
-                    menus.displayIngredients();
+                    menus.displayIngredients(); 
                     break;
                     
                 case 2:
-                    menus.displayRecipes();
+                    menus.displayRecipes(); //Kanske att man borde kunna välja att se ett recept på en potion här med.
                     break;
 
                 case 3:
-                    //craftPotion
+                    //bookOfRecipes.craftPotion();
                     break;
 
                 case 4:
