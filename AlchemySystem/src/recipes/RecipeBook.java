@@ -36,7 +36,8 @@ public class RecipeBook {
         ingredientLibrary.add(new EssenceOfNight());
         ingredientLibrary.add(new Valeriana());
         ingredientLibrary.add(new Camomille());
-        // Add more as needed
+        ingredientLibrary.add(new AloeVera());
+        ingredientLibrary.add(new EssenceOfEarth());
     }
 
     private void loadRecipes() {
@@ -45,6 +46,7 @@ public class RecipeBook {
         recipes.add(new Recipe("Potion of Fire Breathing", Map.of("Water", 1, "Essence of Fire", 1, "Coal", 1, "Capsicum", 1)));
         recipes.add(new Recipe("Potion of Speed", Map.of("Water", 1, "Essence of Air", 1, "Beta vulgaris", 1, "Swift Root", 2)));
         recipes.add(new Recipe("Potion of Sleep", Map.of("Water", 1, "Essence of Night", 1, "Camomille", 2, "Valeriana", 1)));
+        recipes.add(new Recipe("Potion of Healing", Map.of("Water", 1, "Essence of Earth", 1, "Aloe Vera", 1, "Valeriana",1 )));
     }
 
     public List<Ingredient> getAllIngredientsSorted() {

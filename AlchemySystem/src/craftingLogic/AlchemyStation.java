@@ -25,7 +25,11 @@ public class AlchemyStation {
     public void craftPotion() {
         System.out.println("==== Alechemy Station ====");
         choosePotion();
-        addIngredients();
+        while (true) {
+            addIngredients();
+            System.out.println("Do you want to add another ingredient to your brew?"); //Continue with user input here.
+        }
+        
     }
 
     public void choosePotion() {
@@ -40,6 +44,7 @@ public class AlchemyStation {
     }
 
     public void addIngredients() {
+        System.out.println();
         System.out.println("Enter an ingredient from the list of ingredients using the numbers:");
         menus.displayIngredients();
         int answer = ui.intInput();
