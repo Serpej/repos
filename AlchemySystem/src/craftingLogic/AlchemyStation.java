@@ -33,14 +33,24 @@ public class AlchemyStation {
     }
 
     public void choosePotion() {
-        System.out.println();
-        System.out.println("So, you want to create a potion?");
-        System.out.println("Enter a number to choose a potion to see the what ingredients it requires: ");
-        menus.displayRecipes();
-        int answer = ui.intInput();
-        //switch case time!
-
-        // Make this when you've made all your potions
+     while (true) {
+           System.out.println();
+           menus.displayRecipes();
+           System.out.println("Enter the potion you want to brew: ");
+           String answer = ui.stringInput();
+           
+           List<Recipe> recipes = recipeBook.getAllRecipes();
+           for (Recipe recipe : recipes) {
+              if (recipe.getPotionName().equalsIgnoreCase(answer)) {
+                   System.out.println("So you want to make a " + recipe.getPotionName() + "?");
+                   System.out.println();
+                   chosenPotion();
+                   break;
+              } else {
+                System.out.println("The recipe you are looking for doesn't exist. Take a look at them and try again.");
+              }
+           }
+     }
     }
 
     public void addIngredients() {

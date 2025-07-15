@@ -44,13 +44,13 @@ public class Menus {
         System.out.println();
     }
 
-    public void craftPotionMenu() {
+    public void chosenPotionMenu() {
         System.out.println();
-        System.out.println("==== Brewing Menu ====");
-        System.out.println("1. Add Ingredient");
-        System.out.println("2. Remove Ingredient");
-        System.out.println("3. Finish your brew");
-        System.out.println("4. Abort brewing");
+        System.out.println("1. Craft Potion");
+        System.out.println("2. View ingredients");
+        System.out.println("3. Remove ingredient");
+        System.out.println("4. Choose to brew another potion");
+        System.out.println("5. Abort brewing");
         System.out.println();
     }
 }
