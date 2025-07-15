@@ -3,6 +3,7 @@ package app;
 import java.util.HashMap;
 import java.util.Map;
 
+import craftingLogic.AlchemyStation;
 import utils.Menus;
 import ui.Ui;
 
@@ -15,6 +16,7 @@ public class App {
         int intAnswer = 0;
 
         RecipeBook bookOfRecipes = new RecipeBook();
+        AlchemyStation AlchemyStation = new AlchemyStation();
 
         
 
