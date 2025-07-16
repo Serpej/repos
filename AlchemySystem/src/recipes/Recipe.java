@@ -6,7 +6,7 @@ package recipes;
 
 import java.util.Map;
 
-public class Recipe {
+public abstract class Recipe {
     private String potionName;
     private Map<String, Integer> requiredIngredients;
 
@@ -19,7 +19,5 @@ public class Recipe {
         return potionName;
     }
 
-    public Map<String, Integer> getRequiredIngredients() {
-        return requiredIngredients;
-    }
+    public abstract Map<String, Integer> getRequiredIngredients();
 }

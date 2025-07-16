@@ -50,7 +50,7 @@ public class Menus {
         System.out.println("2. View ingredients");
         System.out.println("3. Remove ingredient");
         System.out.println("4. Choose to brew another potion");
-        System.out.println("5. Abort brewing");
+        System.out.println("5. Stop brewing");
         System.out.println();
     }
 }

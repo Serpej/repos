@@ -42,11 +42,11 @@ public class RecipeBook {
 
     private void loadRecipes() {
         // adding a recipe to the ArrayList (A recipe object contains a potionName and a map (which contains any numner of key:values, in this case "ingredient name", quantity))
-        recipes.add(new Recipe("Potion of Precision", Map.of("Water", 1, "Arrow Root", 2, "Essence of Air", 1, "Calendula", 2)));
-        recipes.add(new Recipe("Potion of Fire Breathing", Map.of("Water", 1, "Essence of Fire", 1, "Coal", 1, "Capsicum", 1)));
-        recipes.add(new Recipe("Potion of Speed", Map.of("Water", 1, "Essence of Air", 1, "Beta vulgaris", 1, "Swift Root", 2)));
-        recipes.add(new Recipe("Potion of Sleep", Map.of("Water", 1, "Essence of Night", 1, "Camomille", 2, "Valeriana", 1)));
-        recipes.add(new Recipe("Potion of Healing", Map.of("Water", 1, "Essence of Earth", 1, "Aloe Vera", 1, "Valeriana",1 )));
+        recipes.add(new PotionOfPrecision());
+        recipes.add(new PotionOfFirebreathing());
+        recipes.add(new PotionOfSpeed());
+        recipes.add(new PotionOfSleep());
+        recipes.add(new PotionOfHealing());
     }
 
     public List<Ingredient> getAllIngredientsSorted() {

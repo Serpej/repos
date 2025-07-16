@@ -39,7 +39,7 @@ public class App {
                     break;
 
                 case 3:
-                    //bookOfRecipes.craftPotion();
+                    //AlchemyStation.craftPotion();
                     break;
 
                 case 4:

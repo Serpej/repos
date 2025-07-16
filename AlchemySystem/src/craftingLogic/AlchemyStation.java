@@ -64,16 +64,17 @@ public void chosenPotion(String chosenPotion) {
             //Craft Potion
             break;
         case 2:
-            //View ingredients of potion
+            viewPotionIngredients(chosenPotion);
             break;
         case 3:
             //Remove ingredient
             break;
         case 4:
-            //Choose to brew another potion
+            System.out.println("New potion it is!");
+            choosePotion();
             break;
         case 5:
-            //Stop brewing
+            System.out.println("Threw the mixture in the compost. Better safe than sorry.");
             break;
 
         default:
@@ -113,5 +114,14 @@ public void addIngredients() {
         // Add ingredient to new potion
         // When done, add it to the list of recipes (if it succeeds).
         // If the potion doesn't match any of the already made object. go back to main menu.
+}
+
+public void viewPotionIngredients(String potionName) {
+    for (Recipe recipe : recipeBook.getAllRecipes()) {
+        String recipeName =recipe.getPotionName();
+        if (recipeName.equalsIgnoreCase(potionName)) {
+            recipe.getRequiredIngredients();
+        }
+    }
 }
 }
