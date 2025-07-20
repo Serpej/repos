@@ -14,12 +14,16 @@ import utils.Menus;
 import ingredients.*;
 
 public class AlchemyStation {
-    RecipeBook recipeBook = new RecipeBook();
+    private RecipeBook recipeBook;
+    private Menus menus;
 
+    public AlchemyStation(RecipeBook recipeBook, Menus menus) {
+        this.recipeBook = recipeBook;
+        this.menus = menus;
+    }
     Map<String, Integer> currenctBrew = new HashMap<>();
-
     Ui ui = new Ui();
-    Menus menus = new Menus();
+    
     
 
     public void craftPotion() {

@@ -11,12 +11,12 @@ import recipes.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Menus menus = new Menus();
         Ui inputs = new Ui();
         int intAnswer = 0;
 
-        RecipeBook bookOfRecipes = new RecipeBook();
-        AlchemyStation AlchemyStation = new AlchemyStation();
+        RecipeBook recipeBook = new RecipeBook();
+        Menus menus = new Menus(recipeBook);
+        AlchemyStation AlchemyStation = new AlchemyStation(recipeBook, menus);
 
         
 
@@ -39,7 +39,7 @@ public class App {
                     break;
 
                 case 3:
-                    //AlchemyStation.craftPotion();
+                    AlchemyStation.choosePotion();
                     break;
 
                 case 4:

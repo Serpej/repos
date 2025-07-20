@@ -5,7 +5,11 @@ import java.util.List;
 import recipes.*;
 
 public class Menus {
-    RecipeBook recipeBook = new RecipeBook();
+    private RecipeBook recipeBook;
+
+    public Menus (RecipeBook recipeBook) {
+        this.recipeBook = recipeBook;
+    }
 
 
     public void mainMenu() {
@@ -33,6 +37,7 @@ public class Menus {
     }
 
     public void displayRecipes() {
+        System.out.println("recipeBook is null? " + (recipeBook == null));
         System.out.println();
         System.out.println("==== List of known Recipes ====");
         System.out.println();
