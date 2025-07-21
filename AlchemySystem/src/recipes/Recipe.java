@@ -19,5 +19,7 @@ public abstract class Recipe {
         return potionName;
     }
 
-    public abstract Map<String, Integer> getRequiredIngredients();
+    public Map<String, Integer> getRequiredIngredients(){
+        return requiredIngredients;
+    };
 }
