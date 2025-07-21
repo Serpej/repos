@@ -37,7 +37,6 @@ public class Menus {
     }
 
     public void displayRecipes() {
-        System.out.println("recipeBook is null? " + (recipeBook == null));
         System.out.println();
         System.out.println("==== List of known Recipes ====");
         System.out.println();
@@ -49,7 +48,8 @@ public class Menus {
         System.out.println();
     }
 
-    public void chosenPotionMenu() {
+    public void chosenPotionMenu(String chosenPotion) {
+        System.out.println("==== Menu for crafting a " + chosenPotion + " ====");
         System.out.println();
         System.out.println("1. Craft Potion");
         System.out.println("2. View ingredients");

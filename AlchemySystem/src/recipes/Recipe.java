@@ -19,7 +19,11 @@ public abstract class Recipe {
         return potionName;
     }
 
-    public Map<String, Integer> getRequiredIngredients(){
-        return requiredIngredients;
+    public void getRequiredIngredients(){
+        for (Map.Entry<String, Integer> entry : requiredIngredients.entrySet()) {
+            String ingredientName = entry.getKey();
+            int ingredientValue = entry.getValue();
+            System.out.println("- " + ingredientValue + " x " + ingredientName);
+        }
     };
 }

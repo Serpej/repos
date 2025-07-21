@@ -40,27 +40,31 @@ public void choosePotion() {
     while (true) {
         System.out.println();
         menus.displayRecipes();
-        System.out.println("Enter the potion you want to brew: ");
+        System.out.println("Enter the potion you want to brew by typing the name: ");
         String answer = ui.stringInput();
+
+        boolean found = false;
         
         List<Recipe> recipes = recipeBook.getAllRecipes();
         for (Recipe recipe : recipes) {
             if (recipe.getPotionName().equalsIgnoreCase(answer)) {
+                found = true;
                 String chosenPotion = recipe.getPotionName();
-                System.out.println("So you want to make a " + recipe.getPotionName() + "?");
                 System.out.println();
+                System.out.println("So you want to make a " + recipe.getPotionName() + "?");
                 chosenPotion(chosenPotion);
                 break;
-            } else {
-                System.out.println("The recipe you are looking for doesn't exist. Take a look at them and try again.");
             }
+        }
+        if (!found) {
+            System.out.println("The recipe you are looking for doesn't exist. Take a look at them and try again.");
         }
     }
 }
 
 public void chosenPotion(String chosenPotion) {
     System.out.println();
-    menus.chosenPotionMenu();
+    menus.chosenPotionMenu(chosenPotion);
     System.out.println("Choose a number in the menu above: ");
     int answer = ui.intInput();
     switch (answer) {
@@ -121,8 +125,9 @@ public void addIngredients() {
 }
 
 public void viewPotionIngredients(String potionName) {
+    System.out.println();
     for (Recipe recipe : recipeBook.getAllRecipes()) {
-        String recipeName =recipe.getPotionName();
+        String recipeName = recipe.getPotionName();
         if (recipeName.equalsIgnoreCase(potionName)) {
             recipe.getRequiredIngredients();
         }
