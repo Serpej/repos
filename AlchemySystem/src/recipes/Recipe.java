@@ -25,5 +25,5 @@ public abstract class Recipe {
             int ingredientValue = entry.getValue();
             System.out.println("- " + ingredientValue + " x " + ingredientName);
         }
-    };
+    }
 }

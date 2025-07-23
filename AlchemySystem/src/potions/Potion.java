@@ -6,6 +6,7 @@ package potions;
 
 import ingredients.*;
 import java.util.List;
+import java.util.Map;
 
 public class Potion {
     private String name = "";
@@ -42,10 +43,8 @@ public class Potion {
         for (Ingredient ingredient : ingredients) {
             System.out.println();
             ingredient.getName();
-            ingredient.describe(); // calls polymorph
-
+            ingredient.describe();
         }
     }
-
-    
+   
 }

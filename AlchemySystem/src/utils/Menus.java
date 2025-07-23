@@ -58,4 +58,10 @@ public class Menus {
         System.out.println("5. Stop brewing");
         System.out.println();
     }
+
+    public void intYesOrNo() {
+        System.out.println();
+        System.out.println("1. Yes");
+        System.out.println("2. No" );
+    }
 }
