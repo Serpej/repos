@@ -36,7 +36,7 @@ public class AlchemyStation {
         
     }
 
-public void choosePotion() {
+public boolean choosePotion() {
     while (true) {
         System.out.println();
         menus.displayRecipes();
@@ -52,7 +52,10 @@ public void choosePotion() {
                 String chosenPotion = recipe.getPotionName();
                 System.out.println();
                 System.out.println("So you want to make a " + recipe.getPotionName() + "?");
-                chosenPotion(chosenPotion);
+                boolean backToMain = chosenPotion(chosenPotion);
+                if (backToMain) {
+                    return true;
+                }
                 break;
             }
         }
@@ -62,32 +65,37 @@ public void choosePotion() {
     }
 }
 
-public void chosenPotion(String chosenPotion) {
-    System.out.println();
-    menus.chosenPotionMenu(chosenPotion);
-    System.out.println("Choose a number in the menu above: ");
-    int answer = ui.intInput();
-    switch (answer) {
-        case 1:
-            //Craft Potion
-            break;
-        case 2:
-            viewPotionIngredients(chosenPotion);
-            break;
-        case 3:
-            //Remove ingredient
-            break;
-        case 4:
-            System.out.println("New potion it is!");
-            choosePotion();
-            break;
-        case 5:
-            System.out.println("Threw the mixture in the compost. Better safe than sorry.");
-            break;
-
-        default:
-            break;
+public boolean chosenPotion(String chosenPotion) {
+    boolean continueBrewing = true;
+    while (continueBrewing) {
+        System.out.println();
+        menus.chosenPotionMenu(chosenPotion);
+        System.out.println("Choose a number in the menu above: ");
+        int answer = ui.intInput();
+        switch (answer) {
+            case 1:
+                //Craft Potion
+                continueBrewing = false; //If ett object blev skapat.
+                break;
+            case 2:
+                viewPotionIngredients(chosenPotion);
+                break;
+            case 3:
+                //Remove ingredient
+                break;
+            case 4:
+                System.out.println("New potion it is!");
+                choosePotion();
+                return true; // För att slippa gå tillbaka till gamla potionen sen.
+            case 5:
+                System.out.println();
+                System.out.println("Threw the mixture in the compost. Better safe than sorry.");
+                return true;
+            default:
+                break;
+        }
     }
+    return false;
 }
 
 public void addIngredients() {

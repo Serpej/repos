@@ -39,7 +39,10 @@ public class App {
                     break;
 
                 case 3:
-                    AlchemyStation.choosePotion();
+                    boolean backToMain = AlchemyStation.choosePotion();
+                    if (backToMain) {
+                        
+                    }
                     break;
 
                 case 4:
