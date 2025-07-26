@@ -27,7 +27,7 @@ public class AlchemyStation {
     
     
 
-    public void craftPotion(String chosenPotion) {
+    public Map<String, Integer> craftPotion(String chosenPotion) {
         System.out.println("==== Alechemy Station ====");
         boolean continueBrewing = true;
         while (continueBrewing) {
@@ -50,6 +50,8 @@ public class AlchemyStation {
                     break;
             }
         }
+
+        return currentBrew;
         
     }
 
@@ -91,7 +93,11 @@ public class AlchemyStation {
             int answer = ui.intInput();
             switch (answer) {
                 case 1:
-                    craftPotion(chosenPotion);
+                    currentBrew = craftPotion(chosenPotion);
+                    boolean rightIngredients = compareBrewWithPotion(chosenPotion, currentBrew);
+                    if (rightIngredients) {
+                        makePotion(chosenPotion);
+                    }
                     continueBrewing = false; //If ett object blev skapat.
                     break;
                 case 2:
@@ -149,6 +155,28 @@ public class AlchemyStation {
         }
 
         return currentBrew;
+    }
+
+    public boolean compareBrewWithPotion(String chosenPotion, Map<String, Integer> currentBrew) {
+        boolean found = false;
+        for (Recipe recipe : recipeBook.getAllRecipes()) {
+            if (recipe.getPotionName().equals(chosenPotion)) {
+                found = true;
+                if(recipe.equals(currentBrew)) {
+                    return true;
+                }
+            }
+        }
+        if (!found) {
+            System.out.println(" Could not find the potion you were trying to brew...");
+        }
+        return false;
+    }
+
+    public void makePotion(String chosenPotion) {
+        //Foreach recept, hitta recept
+        // instanciera namn och ingredienser
+        // Gör en ny lista till crafted potions och stoppa in ett recept i den???
     }
 
     public void viewPotionIngredients(String potionName) {

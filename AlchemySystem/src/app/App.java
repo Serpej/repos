@@ -6,6 +6,7 @@ import java.util.Map;
 import craftingLogic.AlchemyStation;
 import utils.Menus;
 import ui.Ui;
+import potions.*;
 
 import recipes.*;
 
@@ -16,7 +17,8 @@ public class App {
 
         RecipeBook recipeBook = new RecipeBook();
         Menus menus = new Menus(recipeBook);
-        AlchemyStation AlchemyStation = new AlchemyStation(recipeBook, menus);
+        AlchemyStation alchemyStation = new AlchemyStation(recipeBook, menus);
+        
 
         
 
@@ -39,7 +41,7 @@ public class App {
                     break;
 
                 case 3:
-                    boolean backToMain = AlchemyStation.choosePotion();
+                    boolean backToMain = alchemyStation.choosePotion();
                     if (backToMain) {
                         
                     }
