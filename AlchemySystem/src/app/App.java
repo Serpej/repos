@@ -37,18 +37,15 @@ public class App {
                     break;
                     
                 case 2:
-                    menus.displayRecipes(); //Kanske att man borde kunna välja att se ett recept på en potion här med.
+                    menus.displayRecipes();
                     break;
 
                 case 3:
-                    boolean backToMain = alchemyStation.choosePotion();
-                    if (backToMain) {
-                        
-                    }
+                    alchemyStation.choosePotion();
                     break;
 
                 case 4:
-                    //viewCraftedPotions
+                    alchemyStation.viewCraftedPotions();
                     break;
                     
                 case 5:

@@ -6,6 +6,7 @@ package craftingLogic;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import recipes.*;
@@ -22,9 +23,11 @@ public class AlchemyStation {
         this.recipeBook = recipeBook;
         this.menus = menus;
     }
-    Map<String, Integer> currentBrew = new HashMap<>();
     Ui ui = new Ui();
     
+    Map<String, Integer> currentBrew = new HashMap<>();
+    List<Potion> craftedPotions = new ArrayList<>();
+   
     
 
     public Map<String, Integer> craftPotion(String chosenPotion) {
@@ -43,7 +46,6 @@ public class AlchemyStation {
                 case 1:
                     continue;            
                 case 2:
-                    System.out.println("Let's see if you made it correctly...!");
                     continueBrewing = false;
                     break;
                 default:
@@ -85,8 +87,9 @@ public class AlchemyStation {
     }
 
     public boolean chosenPotion(String chosenPotion) {
-        boolean continueBrewing = true;
-        while (continueBrewing) {
+        boolean stayInCraftingStation = true;
+        boolean potionWasMade = false;
+        while (stayInCraftingStation) {
             System.out.println();
             menus.chosenPotionMenu(chosenPotion);
             System.out.println("Choose a number in the menu above: ");
@@ -96,10 +99,13 @@ public class AlchemyStation {
                     currentBrew = craftPotion(chosenPotion);
                     boolean rightIngredients = compareBrewWithPotion(chosenPotion, currentBrew);
                     if (rightIngredients) {
-                        makePotion(chosenPotion);
+                        potionWasMade = makePotion(chosenPotion);
+                        System.out.println("A" + chosenPotion + " was made and put into your list of crafted potions. Congratulations!");
+                        return true;
+                    } else {
+                        System.out.println("The ingredients weren't quite right. \\n Threw away the potion. Luckily it didn't blow up in your face...");
+                        return true;
                     }
-                    continueBrewing = false; //If ett object blev skapat.
-                    break;
                 case 2:
                     viewPotionIngredients(chosenPotion);
                     break;
@@ -109,7 +115,7 @@ public class AlchemyStation {
                 case 4:
                     System.out.println("New potion it is!");
                     choosePotion();
-                    return true; // För att slippa gå tillbaka till gamla potionen sen.
+                    return true;
                 case 5:
                     System.out.println();
                     System.out.println("Threw the mixture in the compost. Better safe than sorry.");
@@ -124,13 +130,13 @@ public class AlchemyStation {
     public Map<String, Integer> addIngredients() {
         System.out.println();
         System.out.println("Enter an ingredient from the list of ingredients using the numbers:");
-        menus.displayIngredients();
+        menus.displayIngredientsShort();
         int answer = ui.intInput();
         System.out.println();
-        //Make a new list (from the sorted method in Recipe Book)
+        
         List<Ingredient> ingredients = recipeBook.getAllIngredientsSorted();
 
-        // Check if the list contains the number.
+        
         boolean ingredientNotFound = true;
         while (ingredientNotFound) {
             if (answer > 0 && answer <= ingredients.size()) {
@@ -138,7 +144,7 @@ public class AlchemyStation {
                     int rightPotionIndex = answer - 1;
                     if (i == rightPotionIndex) {
 
-                        // Add an amount of the ingredient to the current brew.
+                        
                         System.out.println();
                         System.out.println("Enter the amount of " + ingredients.get(i).getName() + " would you like to add in numbers: ");
                         int amount = ui.intInput();
@@ -162,7 +168,7 @@ public class AlchemyStation {
         for (Recipe recipe : recipeBook.getAllRecipes()) {
             if (recipe.getPotionName().equals(chosenPotion)) {
                 found = true;
-                if(recipe.equals(currentBrew)) {
+                if(recipe.equals(currentBrew)) { //I need to find a way to compare the two maps thats working.
                     return true;
                 }
             }
@@ -173,10 +179,15 @@ public class AlchemyStation {
         return false;
     }
 
-    public void makePotion(String chosenPotion) {
-        //Foreach recept, hitta recept
-        // instanciera namn och ingredienser
-        // Gör en ny lista till crafted potions och stoppa in ett recept i den???
+    public boolean makePotion(String chosenPotion) {
+        for (Recipe recipe : recipeBook.getAllRecipes()) {
+            if (recipe.getPotionName().equalsIgnoreCase(chosenPotion)) {
+                Potion newPotion = new Potion(recipe.getPotionName(), recipe.getRecipe());
+                craftedPotions.add(newPotion);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void viewPotionIngredients(String potionName) {
@@ -194,6 +205,14 @@ public class AlchemyStation {
             String ingredientName = entry.getKey();
             int ingredientValue = entry.getValue();
             System.out.println("- " + ingredientValue + " x " + ingredientName);
+        }
+    }
+
+    public void viewCraftedPotions() {
+        for (Potion potion : craftedPotions) {
+            System.out.println(potion.getPotionName());
+            potion.getRequiredIngredients();
+            System.out.println();
         }
     }
 }

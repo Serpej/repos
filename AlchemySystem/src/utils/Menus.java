@@ -36,6 +36,17 @@ public class Menus {
         }
     }
 
+    public void displayIngredientsShort() {
+        System.out.println();
+        System.out.println("==== List of Ingredients ====");
+        System.out.println();
+        for (int i = 0; i < recipeBook.getAllIngredientsSorted().size(); i++) {
+            int bullet = i + 1;
+            System.out.println( bullet + ". "+ recipeBook.getAllIngredientsSorted().get(i).getName());
+        }
+        System.out.println();
+    }
+
     public void displayRecipes() {
         System.out.println();
         System.out.println("==== List of known Recipes ====");

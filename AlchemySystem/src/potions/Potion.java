@@ -5,7 +5,6 @@
 package potions;
 
 import ingredients.*;
-import java.util.List;
 import java.util.Map;
 import recipes.*;
 
@@ -18,17 +17,19 @@ public class Potion {
         this.ingredients = ingredients;
     }
 
-    public String getName() {
+    public String getPotionName() {
         return name;
     }
     public String toString() {
         return name;
     }
 
-    public void describe() {
-        System.out.println("Potion: " + name);
-        System.out.println("Ingredients:");
-        recipes.getRequiredIngredients();
+    public void getRequiredIngredients(){
+        for (Map.Entry<String, Integer> entry : ingredients.entrySet()) {
+            String ingredientName = entry.getKey();
+            int ingredientValue = entry.getValue();
+            System.out.println("- " + ingredientValue + " x " + ingredientName);
+        }
     }
    
 }
