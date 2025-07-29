@@ -5,6 +5,7 @@
 package recipes;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class Recipe {
     private String potionName;

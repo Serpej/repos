@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeMap;
 
 import recipes.*;
 import ui.Ui;
@@ -39,7 +40,7 @@ public class AlchemyStation {
             System.out.println();
             viewBrewIngredients(currentBrew);
             System.out.println();
-            System.out.println("Do you want to add another ingredient to your brew?"); //Continue with user input here.
+            System.out.println("Do you want to add another ingredient to your brew?");
             menus.intYesOrNo();
             int answer = ui.intInput();
             switch (answer) {
@@ -97,13 +98,15 @@ public class AlchemyStation {
             switch (answer) {
                 case 1:
                     currentBrew = craftPotion(chosenPotion);
+                    printCurrentbrewAndRecipe(currentBrew, chosenPotion);
                     boolean rightIngredients = compareBrewWithPotion(chosenPotion, currentBrew);
                     if (rightIngredients) {
+                        currentBrew.clear();
                         potionWasMade = makePotion(chosenPotion);
-                        System.out.println("A" + chosenPotion + " was made and put into your list of crafted potions. Congratulations!");
+                        System.out.println("A " + chosenPotion + " was made and put into your list of crafted potions. Congratulations!");
                         return true;
                     } else {
-                        System.out.println("The ingredients weren't quite right. \\n Threw away the potion. Luckily it didn't blow up in your face...");
+                        System.out.println("The ingredients weren't quite right.\nThrew away the potion. Luckily it didn't blow up in your face...");
                         return true;
                     }
                 case 2:
@@ -144,13 +147,12 @@ public class AlchemyStation {
                     int rightPotionIndex = answer - 1;
                     if (i == rightPotionIndex) {
 
-                        
                         System.out.println();
                         System.out.println("Enter the amount of " + ingredients.get(i).getName() + " would you like to add in numbers: ");
                         int amount = ui.intInput();
                         currentBrew.put(ingredients.get(i).getName(), amount);
                         System.out.println();
-                        System.out.println(amount + " of " + ingredients.get(i).getName() + "was mixed in the brew.");
+                        System.out.println(amount + " of " + ingredients.get(i).getName() + " was mixed in the brew.");
                         System.out.println();
                     }
                     ingredientNotFound = false;
@@ -167,14 +169,14 @@ public class AlchemyStation {
         boolean found = false;
         for (Recipe recipe : recipeBook.getAllRecipes()) {
             if (recipe.getPotionName().equals(chosenPotion)) {
-                found = true;
-                if(recipe.equals(currentBrew)) { //I need to find a way to compare the two maps thats working.
+                if(recipe.getRecipe().equals(currentBrew)) {
+                    found = true;
                     return true;
                 }
             }
         }
         if (!found) {
-            System.out.println(" Could not find the potion you were trying to brew...");
+            System.out.println("Could not find the potion you were trying to brew...");
         }
         return false;
     }
@@ -190,6 +192,15 @@ public class AlchemyStation {
         return false;
     }
 
+    public void printCurrentbrewAndRecipe(Map<String, Integer> currentBrew, String chosenPotion) {
+        System.out.println("==== Recipe for " + chosenPotion + " ====");
+        viewPotionIngredients(chosenPotion);
+        System.out.println();
+        System.out.println("==== Your current brew ====");
+        viewBrewIngredients(currentBrew);
+        System.out.println();
+    }
+    
     public void viewPotionIngredients(String potionName) {
         System.out.println();
         for (Recipe recipe : recipeBook.getAllRecipes()) {
@@ -201,18 +212,27 @@ public class AlchemyStation {
     }
 
     public void viewBrewIngredients (Map<String, Integer> currentBrew) {
-        for (Map.Entry<String, Integer> entry : currentBrew.entrySet()) {
-            String ingredientName = entry.getKey();
-            int ingredientValue = entry.getValue();
-            System.out.println("- " + ingredientValue + " x " + ingredientName);
-        }
+        sortByKey(currentBrew);
     }
 
     public void viewCraftedPotions() {
+        System.out.println();
         for (Potion potion : craftedPotions) {
             System.out.println(potion.getPotionName());
             potion.getRequiredIngredients();
             System.out.println();
+        }
+    }
+
+    public void sortByKey(Map<String, Integer> brew) {
+        TreeMap<String, Integer> sorted = new TreeMap<>();
+        sorted.putAll(brew);
+
+        for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
+            String ingredientName = entry.getKey();
+            int ingredientValue = entry.getValue();
+            System.out.println("- " + ingredientValue + " x " + ingredientName);
+
         }
     }
 }
