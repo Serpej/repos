@@ -6,12 +6,12 @@ public class ArrowRoot extends Ingredient {
     String description = "A thick white starchy powder without any special smell of taste. Enhances precision";
 
     public ArrowRoot() {
-        super("Arrow Root", "Common");
+        super("Arrow root", "Common");
     }
 
     @Override
     public String toString() {
-        return "Arrow Root";
+        return "Arrow root";
     }
 
     @Override

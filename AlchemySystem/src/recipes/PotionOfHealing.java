@@ -6,8 +6,8 @@ public class PotionOfHealing extends Recipe {
 
     public PotionOfHealing() {
         super("Potion of Healing", Map.of("Water", 1,
-                                                     "Essence of Earth", 1,
-                                                     "Aloe Vera", 1,
+                                                     "Essence of earth", 1,
+                                                     "Aloe vera", 1,
                                                      "Valeriana",1 ));
     }
 }

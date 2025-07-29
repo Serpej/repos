@@ -5,12 +5,12 @@ public class BetaVulgaris extends Ingredient {
     String description = "A plant that gives many seeds. The root can be processed into sugar! Gives a temporary speed boost";
 
     public BetaVulgaris() {
-        super("Beta Vulgaris", "Common");
+        super("Beta vulgaris", "Common");
     }
 
     @Override
     public String toString() {
-        return "Beta Vulgaris";
+        return "Beta vulgaris";
     }
 
     @Override
