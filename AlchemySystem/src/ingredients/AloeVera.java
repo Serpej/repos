@@ -3,10 +3,10 @@ package ingredients;
 
 public class AloeVera extends Ingredient {
 
-    String description = "Pointy succulent leaves that form an upwardspiraling rose.";
+    String description = "Pointy succulent leaves that form an upwardspiraling rose. Soothes burned skin";
 
     public AloeVera() {
-        super("Aloe vera", "Uncommon", "Soothes burned skin");
+        super("Aloe vera", "Uncommon");
     }
 
     @Override

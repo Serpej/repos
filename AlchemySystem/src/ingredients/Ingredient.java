@@ -3,12 +3,12 @@ package ingredients;
 public abstract class Ingredient {
     private String name = "";
     private String rarity = "";
-    private String properties = "";
+    //private String properties = "";
 
-    public Ingredient(String name, String rarity, String properties) {
+    public Ingredient(String name, String rarity) {
         this.name = name;
         this.rarity = rarity;
-        this.properties = properties;
+        //this.properties = properties;
     }
 
     public String getName() {
@@ -19,12 +19,10 @@ public abstract class Ingredient {
         return rarity;
     }
 
-    public String getProperties() {
-        return properties;
-    }
+
 
     public String toString() {
-        return getName() + "\n" + getRarity() + "\n" + getProperties();
+        return getName() + "\n" + getRarity() + "\n" + describe();
     }
 
     public abstract String describe();

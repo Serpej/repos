@@ -2,10 +2,10 @@ package ingredients;
 
 public class Water extends Ingredient {
     
-    String description = "Clear water, simple but essential for life on Earth.";
+    String description = "Clear water, simple but essential for life on Earth. Basic ingredient for life on Earth";
     
     public Water() {
-        super("Water", "Common", "Basic ingredient for life on Earth");
+        super("Water", "Common");
 
     }
 

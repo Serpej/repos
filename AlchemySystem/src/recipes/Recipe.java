@@ -5,7 +5,8 @@
 package recipes;
 
 import java.util.Map;
-import java.util.TreeMap;
+
+
 
 public abstract class Recipe {
     private String potionName;
@@ -35,6 +36,6 @@ public abstract class Recipe {
     public void describe() {
         System.out.println("Potion: " + potionName);
         System.out.println("Ingredients:");
-        this.getRequiredIngredients(); //funkar!?
+        this.getRequiredIngredients();
     }
 }

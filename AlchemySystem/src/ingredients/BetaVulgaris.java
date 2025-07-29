@@ -2,15 +2,15 @@ package ingredients;
 
 public class BetaVulgaris extends Ingredient {
     
-    String description = "A plant that gives many seeds. The root can be processed into sugar!";
+    String description = "A plant that gives many seeds. The root can be processed into sugar! Gives a temporary speed boost";
 
     public BetaVulgaris() {
-        super("Sugar Beet", "Cncommon", "Gives a temporary speed boost");
+        super("Beta Vulgaris", "Common");
     }
 
     @Override
     public String toString() {
-        return "Sugar Beet";
+        return "Beta Vulgaris";
     }
 
     @Override

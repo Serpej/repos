@@ -2,10 +2,10 @@ package ingredients;
 
 public class Calendula extends Ingredient {
 
-    String description = "A sticky herb with yellow flowers, great for healing eye problems.";
+    String description = "A sticky herb with yellow flowers, great for healing eye problems. Enhances eyesight";
 
     public Calendula() {
-        super("Calendula", "Uncommon", "Enhances eyesight");
+        super("Calendula", "Uncommon");
     }
 
     @Override

@@ -2,10 +2,10 @@ package ingredients;
 
 public class Capsicum extends Ingredient {
 
-    String description = "Red fruits containing small white seeds. The fruit produces a peppery and hot liquid used in cooking as hot spice.";
+    String description = "Red fruits containing small white seeds. The fruit produces a peppery and hot liquid used in cooking as hot spice. Hot spice";
 
     public Capsicum() {
-        super("Capsicum", "Uncommon", "Hot spice");
+        super("Capsicum", "Uncommon");
     }
 
     @Override

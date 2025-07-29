@@ -2,10 +2,10 @@ package ingredients;
 
 public class Camomille extends Ingredient {
 
-    String description = "A herb with a flower of white petals and yellow middle. Smells lovely.";
+    String description = "A herb with a flower of white petals and yellow middle. Smells lovely. Causes sleepyness";
 
     public Camomille() {
-        super("Camomille", "Cncommon", "Causes sleepyness");
+        super("Camomille", "Common");
     }
 
     @Override

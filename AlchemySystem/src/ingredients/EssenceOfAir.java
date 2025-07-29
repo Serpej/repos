@@ -2,10 +2,10 @@ package ingredients;
 
 public class EssenceOfAir extends Ingredient {
     
-    String description = "A transparent crystal containing a clear liquid. When listening closely you can hear the wind blowing inside.";
+    String description = "A transparent crystal containing a clear liquid. When listening closely you can hear the wind blowing inside. Inate magic source.";
 
     public EssenceOfAir() {
-        super("Essence of Air", "Rare", "Inate magic source");
+        super("Essence of Air", "Rare");
     }
 
 

@@ -2,10 +2,10 @@ package ingredients;
 
 public class Valeriana extends Ingredient {
 
-    String description = "A sticky herb with yellow flowers, great for healing eye problems.";
+    String description = "A sticky herb with yellow flowers, great for healing eye problems. Causes drowsyness and relaxation";
 
     public Valeriana() {
-        super("Valeriana", "Uncommon", "Causes drowsyness and relaxation");
+        super("Valeriana", "Uncommon");
     }
 
     @Override

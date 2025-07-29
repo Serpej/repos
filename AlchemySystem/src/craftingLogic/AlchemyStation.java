@@ -212,6 +212,7 @@ public class AlchemyStation {
     }
 
     public void viewBrewIngredients (Map<String, Integer> currentBrew) {
+        System.out.println();
         sortByKey(currentBrew);
     }
 

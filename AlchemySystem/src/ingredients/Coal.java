@@ -2,10 +2,10 @@ package ingredients;
 
 public class Coal extends Ingredient {
     
-    String description = "A black mineral, created by wood that's been densified by the Earth under a long period of time.";
+    String description = "A black mineral, created by wood that's been densified by the Earth under a long period of time. Used for fire making.";
     
     public Coal() {
-        super("Coal", "Common", "Used for fire making.");
+        super("Coal", "Common");
 
     }
 
