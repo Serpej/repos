@@ -143,20 +143,16 @@ public class AlchemyStation {
         boolean ingredientNotFound = true;
         while (ingredientNotFound) {
             if (answer > 0 && answer <= ingredients.size()) {
-                for(int i = 0; i < ingredients.size(); i++) {
                     int rightPotionIndex = answer - 1;
-                    if (i == rightPotionIndex) {
-
-                        System.out.println();
-                        System.out.println("Enter the amount of " + ingredients.get(i).getName() + " would you like to add in numbers: ");
-                        int amount = ui.intInput();
-                        currentBrew.put(ingredients.get(i).getName(), amount);
-                        System.out.println();
-                        System.out.println(amount + " of " + ingredients.get(i).getName() + " was mixed in the brew.");
-                        System.out.println();
-                    }
+                    String ingredient = ingredients.get(rightPotionIndex).getName();
+                    System.out.println();
+                    System.out.println("Enter the amount of " + ingredient + " would you like to add in numbers: ");
+                    int amount = ui.intInput();
+                    currentBrew.put(ingredient, amount);
+                    System.out.println();
+                    System.out.println(amount + " of " + ingredient + " was mixed in the brew.");
+                    System.out.println();
                     ingredientNotFound = false;
-                }
             } else {
                 System.out.println("Invalid potion number, try again.");
             }
