@@ -32,21 +32,27 @@ public class AlchemyStation {
     
 
     public Map<String, Integer> craftPotion(String chosenPotion) {
-        System.out.println("==== Alechemy Station ====");
         boolean continueBrewing = true;
         while (continueBrewing) {
-            currentBrew = addIngredients();
-            System.out.println("This is the content of your current brew: ");
             System.out.println();
-            viewBrewIngredients(currentBrew);
-            System.out.println();
-            System.out.println("Do you want to add another ingredient to your brew?");
-            menus.intYesOrNo();
+            System.out.println("Enter your choice by selecting the number in the menu: ");
+            menus.craftPotionMenu();
             int answer = ui.intInput();
             switch (answer) {
                 case 1:
-                    continue;            
+                    currentBrew = addIngredients();            
                 case 2:
+                    removeIngredient(currentBrew);
+                    break;
+                case 3:
+                    System.out.println("This is the content of your current brew: ");
+                    viewBrewIngredients(currentBrew);
+                    System.out.println();
+                    break;
+                case 4:
+                    viewPotionIngredients(chosenPotion);
+                    break;
+                case 5: 
                     continueBrewing = false;
                     break;
                 default:
@@ -58,6 +64,11 @@ public class AlchemyStation {
         
     }
 
+    /**
+     * This method prints the potions available and then takes the a string input.
+     * Then it valides the input and returns a boolean.
+     * @return boolean
+     */
     public boolean choosePotion() {
         while (true) {
             System.out.println();
@@ -158,6 +169,10 @@ public class AlchemyStation {
         }
 
         return currentBrew;
+    }
+
+    public void removeIngredient(Map <String, Integer> currentBrew) {
+
     }
 
     public boolean compareBrewWithPotion(String chosenPotion, Map<String, Integer> currentBrew) {

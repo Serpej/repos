@@ -74,4 +74,16 @@ public class Menus {
         System.out.println("1. Yes");
         System.out.println("2. No" );
     }
+
+    public void craftPotionMenu() {
+        System.out.println();
+        System.out.println("==== Alechemy Station ====");
+        System.out.println();
+        System.out.println("1. Add an ingredient");
+        System.out.println("2. Remove an ingredient");
+        System.out.println("3. View your current brew");
+        System.out.println("4. View potion recipe");
+        System.out.println("5. Exit Alchemy Station (And see what you made)");
+        System.out.println();
+    }
 }
