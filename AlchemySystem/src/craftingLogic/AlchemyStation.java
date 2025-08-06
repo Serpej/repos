@@ -113,16 +113,15 @@ public class AlchemyStation {
                     viewPotionIngredients(chosenPotion);
                     break;
                 case 3:
-                    //Remove ingredient
-                    break;
-                case 4:
                     System.out.println("New potion it is!");
                     choosePotion();
                     return true;
-                case 5:
+                    
+                case 4:
                     System.out.println();
                     System.out.println("Threw the mixture in the compost. Better safe than sorry.");
                     return true;
+ 
                 default:
                     break;
             }
