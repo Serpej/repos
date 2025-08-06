@@ -40,7 +40,8 @@ public class AlchemyStation {
             int answer = ui.intInput();
             switch (answer) {
                 case 1:
-                    currentBrew = addIngredients();            
+                    currentBrew = addIngredients();   
+                    break;         
                 case 2:
                     removeIngredient(currentBrew);
                     break;
@@ -171,8 +172,31 @@ public class AlchemyStation {
         return currentBrew;
     }
 
-    public void removeIngredient(Map <String, Integer> currentBrew) {
+    public Map<String, Integer> removeIngredient(Map <String, Integer> currentBrew) {
+        List<String> ingredientNames = new ArrayList<>(currentBrew.keySet());
+        System.out.println();
+        System.out.println("Enter an ingredient from the brewing list using the numbers:");
+        printNumberedListOfBrew(currentBrew);
+        int answer = ui.intInput();
+        System.out.println();      
 
+        boolean ingredientNotFound = true;
+        while (ingredientNotFound) {
+            if (answer > 0 && answer <= ingredientNames.size()) {
+                    int rightPotionIndex = answer - 1;
+                    String ingredient = ingredientNames.get(rightPotionIndex);
+                    System.out.println();
+                    currentBrew.remove(ingredient);
+                    System.out.println();
+                    System.out.println("Removed all " + ingredient + " from the brew.");
+                    System.out.println();
+                    ingredientNotFound = false;
+            } else {
+                System.out.println("Invalid potion number, try again.");
+            }
+        }
+
+        return currentBrew;
     }
 
     public boolean compareBrewWithPotion(String chosenPotion, Map<String, Integer> currentBrew) {
@@ -235,15 +259,34 @@ public class AlchemyStation {
         }
     }
 
-    public void sortByKey(Map<String, Integer> brew) {
-        TreeMap<String, Integer> sorted = new TreeMap<>();
-        sorted.putAll(brew);
+    public void sortByKey(Map<String, Integer> currentBrew) {
+        if (currentBrew.isEmpty()) {
+            System.out.println("Your current brew contains no ingrdients!");
+        } else {
+            TreeMap<String, Integer> sorted = new TreeMap<>();
+            sorted.putAll(currentBrew);
+            for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
+                String ingredientName = entry.getKey();
+                int ingredientValue = entry.getValue();
+                System.out.println("- " + ingredientValue + " x " + ingredientName);
 
-        for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-            String ingredientName = entry.getKey();
-            int ingredientValue = entry.getValue();
-            System.out.println("- " + ingredientValue + " x " + ingredientName);
+            }
+        }
 
+    }
+
+    public void printNumberedListOfBrew(Map<String, Integer> currentBrew) {
+        if (currentBrew.isEmpty()) {
+            System.out.println("Your current brew contains no ingrdients!");
+        } else {
+            TreeMap<String, Integer> sorted = new TreeMap<>();
+            sorted.putAll(currentBrew);
+            int bullet = 1;
+            for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
+                String ingredientName = entry.getKey();
+                System.out.println(bullet + ". " + ingredientName);
+                bullet++;
+            }
         }
     }
 }

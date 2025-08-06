@@ -17,7 +17,7 @@ public class Menus {
         System.out.println("==== Main Menu ====");
         System.out.println("1. View ingredients");
         System.out.println("2. View recipies");
-        System.out.println("3. Craft Potion");
+        System.out.println("3. Choose Potion");
         System.out.println("4. View all crafted potions");
         System.out.println("5. Exit program");
         System.out.println();
