@@ -26,10 +26,12 @@ public abstract class Recipe {
     }
 
     public void getRequiredIngredients(){
+        int bullet = 1;
         for (Map.Entry<String, Integer> entry : requiredIngredients.entrySet()) {
             String ingredientName = entry.getKey();
             int ingredientValue = entry.getValue();
-            System.out.println("- " + ingredientValue + " x " + ingredientName);
+            System.out.println(bullet + ". - " + ingredientValue + " x " + ingredientName);
+            bullet++;
         }
     }
 
