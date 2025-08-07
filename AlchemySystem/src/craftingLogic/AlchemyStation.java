@@ -47,7 +47,7 @@ public class AlchemyStation {
                     break;
                 case 3:
                     System.out.println("This is the content of your current brew: ");
-                    viewBrewIngredients(currentBrew);
+                    viewBrewIngredientsSorted(currentBrew);
                     System.out.println();
                     break;
                 case 4:
@@ -110,7 +110,10 @@ public class AlchemyStation {
             switch (answer) {
                 case 1:
                     currentBrew = craftPotion(chosenPotion);
-                    printCurrentbrewAndRecipe(currentBrew, chosenPotion);
+                    System.out.println("==== Your current brew " + chosenPotion + " ====");
+                    printCurrentbrew(currentBrew);
+                    System.out.println("==== Recipe for " + chosenPotion + " ====");
+                    viewPotionIngredients(chosenPotion);
                     boolean rightIngredients = compareBrewWithPotion(chosenPotion, currentBrew);
                     if (rightIngredients) {
                         currentBrew.clear();
@@ -173,10 +176,11 @@ public class AlchemyStation {
     }
 
     public Map<String, Integer> removeIngredient(Map <String, Integer> currentBrew) {
-        List<String> ingredientNames = new ArrayList<>(currentBrew.keySet());
+        TreeMap<String, Integer> currentBrewSorted = new TreeMap<>(currentBrew);
+        List<String> ingredientNames = new ArrayList<>(currentBrewSorted.keySet());
         System.out.println();
         System.out.println("Enter an ingredient from the brewing list using the numbers:");
-        printNumberedListOfBrew(currentBrew);
+        viewBrewIngredientsSorted(currentBrew);
         int answer = ui.intInput();
         System.out.println();      
 
@@ -226,12 +230,8 @@ public class AlchemyStation {
         return false;
     }
 
-    public void printCurrentbrewAndRecipe(Map<String, Integer> currentBrew, String chosenPotion) {
-        System.out.println("==== Recipe for " + chosenPotion + " ====");
-        viewPotionIngredients(chosenPotion);
-        System.out.println();
-        System.out.println("==== Your current brew ====");
-        viewBrewIngredients(currentBrew);
+    public void printCurrentbrew(Map<String, Integer> currentBrew) {
+        viewBrewIngredientsSorted(currentBrew);
         System.out.println();
     }
     
@@ -245,11 +245,6 @@ public class AlchemyStation {
         }
     }
 
-    public void viewBrewIngredients (Map<String, Integer> currentBrew) {
-        System.out.println();
-        sortByKey(currentBrew);
-    }
-
     public void viewCraftedPotions() {
         System.out.println();
         for (Potion potion : craftedPotions) {
@@ -259,7 +254,13 @@ public class AlchemyStation {
         }
     }
 
-    public void sortByKey(Map<String, Integer> currentBrew) {
+    /**
+     * Takes the Map and converts it into a TreeMap, then prints it in alphabetical order.
+     * @param currentBrew
+     */
+    public void viewBrewIngredientsSorted(Map<String, Integer> currentBrew) {
+        System.out.println();
+        int bullet = 1;
         if (currentBrew.isEmpty()) {
             System.out.println("Your current brew contains no ingrdients!");
         } else {
@@ -268,25 +269,10 @@ public class AlchemyStation {
             for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
                 String ingredientName = entry.getKey();
                 int ingredientValue = entry.getValue();
-                System.out.println("- " + ingredientValue + " x " + ingredientName);
-
-            }
-        }
-
-    }
-
-    public void printNumberedListOfBrew(Map<String, Integer> currentBrew) {
-        if (currentBrew.isEmpty()) {
-            System.out.println("Your current brew contains no ingrdients!");
-        } else {
-            TreeMap<String, Integer> sorted = new TreeMap<>();
-            sorted.putAll(currentBrew);
-            int bullet = 1;
-            for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-                String ingredientName = entry.getKey();
-                System.out.println(bullet + ". " + ingredientName);
+                System.out.println(bullet + ". - " + ingredientValue + " x " + ingredientName);
                 bullet++;
             }
         }
+
     }
 }
